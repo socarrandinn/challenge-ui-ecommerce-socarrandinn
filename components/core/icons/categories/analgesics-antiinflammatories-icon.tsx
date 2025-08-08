@@ -7,9 +7,9 @@ const AnalgesicsAntiinflammatoriesIcon = ({
 }) => {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 59 57"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       className={cn("w-10 text-primary", className)}
     >
       <path

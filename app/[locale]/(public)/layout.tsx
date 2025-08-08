@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/providers/translation-provider";
 import { commonMeta } from "@/constants/meta";
+import { Header } from "@/components/layouts/header/header";
 
 export const metadata = commonMeta;
 
@@ -29,7 +30,7 @@ export default async function RootLayout({
         locale={dynamicParams?.locale}
         resources={resources}
       >
-        {/* <Header locale={dynamicParams?.locale} /> */}
+        <Header locale={dynamicParams?.locale} />
         <main className={`flex min-h-screen flex-col `}>{children}</main>
         {/*     <Footer /> */}
       </TranslationsProvider>

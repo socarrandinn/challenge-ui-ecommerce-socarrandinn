@@ -9,6 +9,12 @@ export type ClassNameProps= {
     className?: string
 };
 
+export type IState = {
+  code: number;
+  name: string;
+  slug?: string;
+};
+
 
 export type TProps={
     t: TFunction<["translation", ...string[]], undefined>

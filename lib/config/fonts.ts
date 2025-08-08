@@ -1,6 +1,6 @@
 import localFont from 'next/font/local';
 
-const montserratFonts = localFont({
+const Montserrat = localFont({
   src: [
     {
       path: '../../public/fonts/Montserrat-Thin.ttf',
@@ -93,4 +93,4 @@ const montserratFonts = localFont({
   preload: true,
 });
 
-export const fontVariables = [montserratFonts.variable].join(' ');
+export const fontVariables = [Montserrat.variable].join(' ');

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CircleOffIcon } from "lucide-react";
 import { TransTypography } from "@/components/core/trans-typography copy";
-import NotFoundNotes from "./not-found-notes";
 
 export default function NotFoundLayout() {
   return (
@@ -32,7 +31,6 @@ export default function NotFoundLayout() {
               as="p"
               message="errors:notFound.note.title"
             />
-            <NotFoundNotes />
 
             {/* Action Button */}
             <Button

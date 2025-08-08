@@ -1,33 +1,32 @@
-'use client';
-import React, { memo, useCallback, useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { usePathname, useRouter } from 'next/navigation';
-import i18nConfig from '@/i18nConfig';
+"use client";
+import React, { memo, useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { usePathname, useRouter } from "next/navigation";
+import i18nConfig from "@/i18nConfig";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
-import { IconLanguage } from '@tabler/icons-react';
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { GlobeIcon } from "lucide-react";
 
 type Props = {
   locale: string;
+  id?: string;
 };
 
-const LanguageChanger = ({ locale }: Props) => {
+const LanguageChanger = ({ locale, id = "language-selector" }: Props) => {
   const { i18n } = useTranslation();
-  const currentLocale = i18n.language;
   const router = useRouter();
   const currentPathname = usePathname();
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
 
   const [lng, setLng] = useState<string>(locale);
 
   useEffect(() => {
-    const urlLocale = currentPathname.split('/')[1];
+    const urlLocale = currentPathname.split("/")[1];
     if (urlLocale !== i18n.language) {
       i18n.changeLanguage(urlLocale).then();
     }
@@ -57,34 +56,28 @@ const LanguageChanger = ({ locale }: Props) => {
   );
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          size={'sm'}
-          variant="ghost"
-          className="flex h-fit items-center gap-2 py-0.5 "
-        >
-          <div className="flex items-center gap-2">
-            <IconLanguage className="h-5 w-5" />
-            {t(`languages.${lng || i18nConfig?.defaultLocale}`)}
-          </div>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+    <Select
+      value={lng || i18nConfig?.defaultLocale}
+      onValueChange={handleChange}
+    >
+      <SelectTrigger
+        id={`language-${id}`}
+        className="[&>svg]:text-muted-foreground/80 hover:bg-accent hover:text-accent-foreground h-8 border-none px-2 shadow-none [&>svg]:shrink-0"
+        aria-label="Select language"
+      >
+        <GlobeIcon size={16} aria-hidden="true" />
+        <SelectValue className="hidden sm:inline-flex" />
+      </SelectTrigger>
+      <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2">
         {i18nConfig?.locales?.map((code) => (
-          <DropdownMenuItem
-            key={code}
-            onClick={() => handleChange(code)}
-            className={cn(
-              'cursor-pointer',
-              currentLocale === code ? 'font-bold text-primary' : ''
-            )}
-          >
-            {t(`languages.${code}`)}
-          </DropdownMenuItem>
+          <SelectItem key={code} value={code}>
+            <span className="flex items-center gap-2">
+              <span className="truncate">{t(`languages.${code}`)}</span>
+            </span>
+          </SelectItem>
         ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </SelectContent>
+    </Select>
   );
 };
 

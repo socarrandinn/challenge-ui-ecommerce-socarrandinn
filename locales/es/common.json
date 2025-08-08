@@ -1,3 +1,28 @@
 {
-  "save": "Guardar"
+  "save": "Guardar",
+  "cancel": "Cancelar",
+  "search": "Busca productos, categorías o marcas...",
+
+  "menu": {
+    "navbar": {
+      "catalog": "Catalogo",
+      "about-us": "Quiénes somos",
+      "delivery": "Entregas",
+      "payment": "Pagos",
+      "faq": "Preguntas frecuentes"
+    }
+  },
+  "languages": {
+    "es": "ES",
+    "en": "EN"
+  },
+  "category": {
+    "all": "Categorías"
+  },
+
+  "state": {
+    "select": "Seleccionar provincia",
+    "title": "Seleccione la provincia",
+    "subtitle": "Seleccione la provincia donde se encuentra tu tienda para obtener los productos y precios disponibles en tu región"
+  }
 }
