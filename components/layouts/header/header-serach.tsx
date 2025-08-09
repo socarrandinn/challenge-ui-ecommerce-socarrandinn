@@ -4,36 +4,32 @@ import { Input } from "@/components/ui/input";
 import { ClassNameProps } from "@/interfaces/common.types";
 import { cn } from "@/lib/utils";
 import { XIcon } from "lucide-react";
-import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ICategory } from "@/interfaces/category.interface";
 import CategoryMenu from "@/components/core/menus/category-menu";
 import { SearchIcon } from "@/components/core/icons/search-icon";
+import { useSearch } from "@/hooks/use-search";
 
 type Props = ClassNameProps & {
   categories: ICategory[];
 };
 const HeaderSearch = ({ className, categories }: Props) => {
   const { t } = useTranslation("common");
-  const [search, setSearch] = useState<string>("");
-  // const searchProps = useParseQueryParamsToProps();
-  // const { search, setSearch, onSearch, onClear } = useSearch(searchProps);
 
-  const onSearch = () => {
-    return;
-  };
+  const { search, setSearch, onSearch, onClear } = useSearch();
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      setSearch("");
+      onSearch();
     }
   };
 
   const handleClearSearch = () => {
-    setSearch("");
+    onClear();
   };
 
   return (
@@ -41,7 +37,7 @@ const HeaderSearch = ({ className, categories }: Props) => {
       <div className="flex flex-row">
         <CategoryMenu
           categories={categories || []}
-          className="-mr-1 z-10 hidden lg:flex h-[46px]"
+          className="-mr-2 z-10 hidden lg:flex h-[46px]"
         />
 
         <div className="relative w-full lg:w-auto">

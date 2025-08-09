@@ -15,3 +15,10 @@ export async function deleteCookie(name: string) {
   const cookieStore = await cookies();
   cookieStore.delete(name);
 }
+
+export async function setMultipleCookies(cookiesData: { name: string; value: any }[]): Promise<void> {
+  const cookieStore = await cookies();
+  cookiesData.forEach(({ name, value }) => {
+    cookieStore.set(name, value);
+  });
+}

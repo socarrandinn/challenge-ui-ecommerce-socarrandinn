@@ -17,14 +17,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import SquareItem from "./square-item";
-import { useSearch } from "@/hooks/use-search";
 
 type Props = ClassNameProps & {
   categories: ICategory[];
   onCategoryChange?: (categoryId: string) => void;
 };
-
-const ALL_CATEGORIES_ID = "all";
 
 const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
   const { t } = useTranslation("common");
@@ -37,7 +34,7 @@ const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
   };
 
   return (
-    <Select defaultValue={ALL_CATEGORIES_ID} onValueChange={handleValueChange}>
+    <Select onValueChange={handleValueChange}>
       <SelectTrigger
         id={id}
         className={cn(
@@ -45,18 +42,11 @@ const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
           className
         )}
       >
-        <SelectValue placeholder={t("category.all")} />
+        <SelectValue className="!text-white" placeholder={t("category.all")} />
       </SelectTrigger>
       <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2">
         <SelectGroup>
-          <SelectLabel>{t("category.categories")}</SelectLabel>
-          {/* all category */}
-          <SelectItem value={ALL_CATEGORIES_ID} className="text-[1rem] font-normal">
-            <SquareItem className="!bg-blue-100 text-primary">
-              <LayoutGrid className="h-4 w-4 text-primary" />
-            </SquareItem>
-            <span className="truncate">{t("category.all")}</span>
-          </SelectItem>
+          <SelectLabel>{t("category.all")}</SelectLabel>
 
           {categories?.map((category) => {
             const Icon = CATEGORY_ICONS?.[category.icon] || LayoutGrid;

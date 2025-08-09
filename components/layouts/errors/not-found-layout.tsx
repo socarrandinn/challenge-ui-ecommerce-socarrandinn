@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CircleOffIcon } from "lucide-react";
-import { TransTypography } from "@/components/core/trans-typography copy";
+import { TransTypography } from "@/components/core/trans-typography";
 
 export default function NotFoundLayout() {
   return (

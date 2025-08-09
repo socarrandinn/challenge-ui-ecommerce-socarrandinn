@@ -33,6 +33,7 @@ const initialState: FilterProps = {
   size: `${PAGE_SIZES[0]}`,
   clearFilter: false,
   scrollPosition: 0,
+  state: "hab",
 };
 
 // Zustand store
