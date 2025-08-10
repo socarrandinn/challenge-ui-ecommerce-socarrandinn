@@ -10,7 +10,8 @@
       },
       "price": 1.5,
       "name": "Luvit Ampolla inyectable",
-      "rating": 4
+      "rating": 4,
+      "isNew": true
     },
     {
       "id": "2",
@@ -82,7 +83,8 @@
       },
       "price": 25.5,
       "name": "Medox ABC Jarabe",
-      "rating": 4
+      "rating": 4,
+      "discount": -50.0
     },
     {
       "id": "8",

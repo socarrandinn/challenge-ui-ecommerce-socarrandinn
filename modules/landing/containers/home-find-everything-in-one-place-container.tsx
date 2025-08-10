@@ -29,19 +29,19 @@ const HomeFindEveryThingInOnePlaceContainer = () => {
             className="object-contain aspect-auto block md:hidden"
           />
         </picture>
-        <div className="px-10 md:px-20 py-5 flex flex-col justify-center gap-3 items-start">
+        <div className="px-10 md:px-20 pt-8 flex flex-col justify-start gap-3 items-start">
           <TransTypography
             message="home:find-everything:title"
             className="text-2xl md:text-[42px] font-bold leading-[117%] text-primary"
             as="h2"
           />
           <TransTypography
-            className="text-sm md:text-[1rem] font-normal leading-normal text-gray-400"
+            className="text-sm md:text-[1rem] font-normal leading-normal text-gray-600"
             message="home:find-everything:subtitle"
             as="p"
           />
 
-          <Button className="mt-6" asChild>
+          <Button className="mt-6" asChild size={'lg'}>
             <Link href={CATALOG_MENU.list}>
               <TransTypography message="common:explore-product" as="span" />
             </Link>

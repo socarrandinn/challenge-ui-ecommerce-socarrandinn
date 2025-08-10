@@ -53,8 +53,8 @@ const ProductCarrousel = ({
       {/* control next and previews */}
       {!hidePreviousAndNext && (
         <>
-          <CarouselPrevious className="bg-primary text-white hover:bg-primary/80 hover:text-white -left-6" />
-          <CarouselNext className="bg-primary text-white hover:bg-primary/80  hover:text-white -right-6" />
+          <CarouselPrevious className="hidden md:flex bg-primary text-white hover:bg-primary/80 hover:text-white -left-6" />
+          <CarouselNext className="hidden md:flex bg-primary text-white hover:bg-primary/80  hover:text-white -right-6" />
         </>
       )}
 

@@ -12,8 +12,8 @@ const ProductListCombo = ({ products, componentCombo }: IProductSection) => {
       {/* products desktop */}
       {products.map((product) => (
         <ProductCard
-          className="hidden md:block"
-          imageClassName="md:h-[220px]"
+          className="hidden md:flex"
+          imageClassName="md:h-[176px]"
           product={product}
           key={product.id}
         />

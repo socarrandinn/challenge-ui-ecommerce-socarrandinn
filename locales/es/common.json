@@ -6,6 +6,10 @@
   "explore-product": "Explorar productos",
   "send": "Enviar",
 
+  "product": {
+    "new": "Nuevo"
+  },
+
   "menu": {
     "navbar": {
       "catalog": "Catalogo",

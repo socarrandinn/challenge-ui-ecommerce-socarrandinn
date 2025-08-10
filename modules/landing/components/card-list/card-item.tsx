@@ -1,5 +1,4 @@
 import { TransTypography } from "@/components/core/trans-typography";
-import { Avatar } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { ICardItem } from "@/constants/card-item";
 import { ILucideIconProps } from "@/types/icon";

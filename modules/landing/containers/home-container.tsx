@@ -9,10 +9,11 @@ import HomeMiniBanner1Container from "./home-mini-banner-1-container";
 import HomeProductContainer from "./home-product-container";
 import { getProductByPosition } from "../../common/services/product.service";
 import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
-import HomeBannerCard from "./home-banner-card.container";
+import HomeBannerCard from "./home-banner-card-container";
 import HomeWhatYouNeedContainer from "./home-what-you-need-container";
 import BannerCombo from "../components/banner-combo/banner-combo";
 import HomeFindEveryThingInOnePlaceContainer from "./home-find-everything-in-one-place-container";
+import HomeSaveOnYourCareContainer from "./home-save-on-your-care-container";
 
 type Props = TProps & {
   params: Promise<{ locale: string }>;
@@ -46,6 +47,8 @@ const HomeContainer = async ({}: Props) => {
     <section className="flex flex-col gap-10 mt-8">
       <HomeHeroContainer hero={hero || []} />
       <HomeCategoryContainer categories={categories?.slice(0, 8) || []} />
+
+      {/* mini banner */}
       <HomeMiniBanner1Container />
 
       {/* product recommended */}
@@ -76,7 +79,10 @@ const HomeContainer = async ({}: Props) => {
         componentCombo={<BannerCombo banner={bannerFour?.[0] as IBanner} />}
       />
 
-      {/* Find everything in one place.  */}
+      {/* Save on your care section  */}
+      <HomeSaveOnYourCareContainer />
+
+      {/* Find everything in one place section */}
       <HomeFindEveryThingInOnePlaceContainer />
     </section>
   );

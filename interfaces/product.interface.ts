@@ -8,6 +8,9 @@ export interface IProduct {
   price: number,
   rating: number,
   categoría: string
+
+  discount?: number
+  isNew?: boolean
 }
 
 export interface IProductSection {

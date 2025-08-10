@@ -26,8 +26,13 @@
     }
   },
 
-  "find-everything":{
-    "title":"Encuentra todo en un solo lugar.",
-    "subtitle":"Medicamentos, suplementos, vitaminas, analgésicos y antiinflamatorios, cuidado personal y mucho más."
+  "mini-banner-1": {
+    "title": "Tu Farmacia Online de Confianza.",
+    "subtitle": "Amplio catálogo de medicamentos y productos para tu bienestar. <CatalogLink><bold>Explora nuestro catálogo</bold></CatalogLink>"
+  },
+
+  "find-everything": {
+    "title": "Encuentra todo en un solo lugar.",
+    "subtitle": "Medicamentos, suplementos, vitaminas, analgésicos y antiinflamatorios, cuidado personal y mucho más."
   }
 }
