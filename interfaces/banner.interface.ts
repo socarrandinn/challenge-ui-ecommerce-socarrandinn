@@ -16,6 +16,8 @@ export interface IBanner {
 }
 
 
-export enum BANNER_POSITION {
-  HERO = 'hero'
+export enum BANNER_COLLECTION {
+  HERO = 'hero',
+  BANNER_CARD = 'card',
+  BANNER_FOUR = 'banner-four'
 }

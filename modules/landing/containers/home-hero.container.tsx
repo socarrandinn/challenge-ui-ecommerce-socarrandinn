@@ -1,6 +1,6 @@
 import Container from "@/components/layouts/container";
 import React from "react";
-import MetallicBanner from "../components/metalic-banner/metalic-banner";
+import MetallicBanner from "../components/metallic-banner/metallic-banner";
 import { IBanner } from "@/interfaces/banner.interface";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 const HomeHeroContainer = ({ hero }: Props) => {
   return (
     <Container>
-      <section className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap:3 lg:gap-4">
+      <section className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap-2 lg:gap-3">
         {/* Main banner - left side, full height */}
         <div
           className={`

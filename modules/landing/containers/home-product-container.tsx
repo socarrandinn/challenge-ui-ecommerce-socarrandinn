@@ -3,25 +3,33 @@ import HomeSection from "../components/home-section/home-section";
 import Container from "@/components/layouts/container";
 import { IProduct } from "@/interfaces/product.interface";
 import ProductList from "../components/product-list/product-list";
+import ProductCarrousel from "../components/product-carrousel/product-carrousel";
+import ProductListCombo from "../components/product-list-combo/product-list-combo";
 
 type Props = {
   products: IProduct[];
-  combo?: ReactNode;
-  variant: "list" | "list_whit_combo" | "slide";
+  componentCombo?: ReactNode;
+  variant: "list" | "list_whit_combo" | "carrousel";
+  title: string;
 };
 
 const productFactory = {
   list: ProductList,
-  list_whit_combo: ProductList,
-  slide: ProductList,
+  list_whit_combo: ProductListCombo,
+  carrousel: ProductCarrousel,
 };
 
-const HomeProductContainer = ({ products, combo, variant }: Props) => {
+const HomeProductContainer = ({
+  products,
+  componentCombo,
+  variant,
+  title,
+}: Props) => {
   const Component = productFactory[variant];
   return (
     <Container>
-      <HomeSection title="home:category.title">
-        <Component products={products} combo={combo} />
+      <HomeSection title={title}>
+        <Component products={products} componentCombo={componentCombo} />
       </HomeSection>
     </Container>
   );

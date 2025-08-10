@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 import { getCookie } from "@/app/actions/cookies";
 import i18nConfig from "@/i18nConfig";
 import { IProduct } from '../../../../Smartly Digital/rental_ecommerce/definitions/product';
-import { BANNER_POSITION } from "@/interfaces/banner.interface";
+import { BANNER_COLLECTION } from "@/interfaces/banner.interface";
 import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
 
 
@@ -90,7 +90,7 @@ export const handleProductsResponse = (collection: PRODUCT_COLLECTION) => {
 };
 
 // Función específica para banners
-export const handleBannersResponse = (position: BANNER_POSITION) => {
+export const handleBannersResponse = (position: BANNER_COLLECTION) => {
   return handleApiResponse(position, "banners", "Error al cargar banners");
 };
 

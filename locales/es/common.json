@@ -3,6 +3,8 @@
   "cancel": "Cancelar",
   "search": "Busca productos, categorías o marcas...",
   "go-to-catalog": "Ir al catalogo",
+  "explore-product": "Explorar productos",
+  "send": "Enviar",
 
   "menu": {
     "navbar": {
@@ -25,5 +27,27 @@
     "select": "Seleccionar provincia",
     "title": "Seleccione la provincia",
     "subtitle": "Seleccione la provincia donde se encuentra tu tienda para obtener los productos y precios disponibles en tu región"
+  },
+
+  "fields": {
+    "email": "Correo electrónico"
+  },
+
+  "footer": {
+    "subscribeTo": {
+      "title": "Subscríbete aquí para conocer más de nuestras ofertas",
+      "subtitle": "Regístrese ahora para recibir las últimas actualizaciones sobre promociones y cupones. ¡No te preocupes, no enviamos spam!",
+      "accepted": "Al suscribirte aceptas nuestros <orange>Términos y condiciones y Política de privacidad y cookies.</orange>"
+    },
+    "items": {
+      "phone": {
+        "title": "Lunes a viernes: 08 a. m. a 9 p. m.",
+        "subtitle": "0 800 300-353"
+      },
+      "mail": {
+        "title": "¿Necesitas ayuda con tu pedido?",
+        "subtitle": "info@example.com"
+      }
+    }
   }
 }

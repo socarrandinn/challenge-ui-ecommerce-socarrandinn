@@ -46,7 +46,6 @@ const CategoryCarrousel = ({ categories }: Props) => {
       <CarouselDots
         className="mt-6"
         dotClassName="size-2 bg-indigo-200 hover:bg-indigo-300"
-        activeDotClassName="bg-indigo-600"
       />
     </Carousel>
   );

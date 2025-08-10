@@ -10,15 +10,28 @@ import ProductCardQuantity from "./product-card-quantity";
 import ProductCartIcon from "./product-cart-button";
 import Link from "next/link";
 import { CATALOG_MENU } from "@/constants/navigation";
+import { ClassNameProps } from "@/interfaces/common.types";
+import { cn } from "@/lib/utils";
 
-type Props = {
+type Props = ClassNameProps & {
   product: IProduct;
+  imageClassName?: string;
 };
-const ProductCard = ({ product }: Props) => {
+const ProductCard = ({ product, imageClassName, className }: Props) => {
   return (
-    <Card className="w-auto bg-card rounded-2xl overflow-hidden hover:shadow-card transition-shadow duration-300 p-0">
+    <Card
+      className={cn(
+        "w-auto bg-card rounded-2xl overflow-hidden hover:shadow-card transition-shadow duration-300 p-0",
+        className
+      )}
+    >
       {/* Product Image Section */}
-      <div className="relative bg-gradient-to-br bg-white h-[240px] flex items-center justify-center">
+      <div
+        className={cn(
+          "relative bg-gradient-to-br bg-white h-[160px] md:h-[240px] flex items-center justify-center",
+          imageClassName
+        )}
+      >
         {/* Heart Icon */}
         <ProductFavoriteButton /* productId={product.id} */ />
 
@@ -27,15 +40,15 @@ const ProductCard = ({ product }: Props) => {
           <Image
             src={product.image.src}
             alt={product.name}
-            width={200}
-            height={240}
-            className="object-contain w-auto h-full aspect-square"
+            fill
+            style={{ objectFit: "contain" }}
+            className={cn(imageClassName)}
           />
         </Link>
       </div>
 
       {/* Product Details Section */}
-      <CardContent className="bg-[#f4f7fc] py-5 px-4">
+      <CardContent className="bg-[#f4f7fc] py-2 px-2 md:py-3 md:px-4 h-full">
         <Link href={CATALOG_MENU.path(product?.id)}>
           {/* Price */}
           <ProductPriceCard price={product?.price} />
@@ -50,7 +63,7 @@ const ProductCard = ({ product }: Props) => {
           {/* Rating */}
           <Rating
             value={product?.rating}
-            className={"ring-0 mt-6"}
+            className={"ring-0 mt-4"}
             variant="preview"
             size="sm"
           />

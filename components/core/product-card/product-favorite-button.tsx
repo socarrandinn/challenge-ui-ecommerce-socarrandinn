@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import { HeartIcon } from "@/components/core/icons/heart-icon";
+import { ClassNameProps } from "@/interfaces/common.types";
 
-const ProductFavoriteButton = () => {
+const ProductFavoriteButton = ({ className }: ClassNameProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -15,7 +16,8 @@ const ProductFavoriteButton = () => {
       onClick={toggleFavorite}
       variant={"outline"}
       className={cn(
-        "absolute w-10 h-10 top-4 right-4 p-1 rounded-full bg-white",
+        "absolute w-10 h-10 top-4 right-4 p-1 rounded-full bg-white z-10",
+        className,
         isFavorite
           ? "text-orange-dark"
           : "text-gray-400 hover:text-orange-light"

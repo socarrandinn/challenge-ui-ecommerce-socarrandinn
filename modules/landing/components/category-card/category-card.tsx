@@ -53,12 +53,12 @@ export default CategoryCard;
 
 const Circle = ({ className }: ClassNameProps) => {
   return (
-    <div className={cn("relative w-[130px] h-[130px]", className)}>
+    <div className={cn("relative w-[120px] h-[120px]", className)}>
       {/* Círculo inferior */}
       <div className="absolute inset-0 rounded-full bg-orange-light"></div>
 
       {/* Círculo superior */}
-      <div className="absolute top-1/2 left-1/2 w-[115px] h-[115px] rounded-full bg-orange-dark -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute top-1/2 left-1/2 w-[105px] h-[105px] rounded-full bg-orange-dark -translate-x-1/2 -translate-y-1/2"></div>
     </div>
   );
 };

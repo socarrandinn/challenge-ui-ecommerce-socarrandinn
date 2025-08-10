@@ -3,10 +3,11 @@ import initTranslations from "@/app/i18n";
 import TranslationsProvider from "@/providers/translation-provider";
 import { commonMeta } from "@/constants/meta";
 import { Header } from "@/components/layouts/header/header";
+import Footer from "@/components/core/footer/footer";
 
 export const metadata = commonMeta;
 
-const i18nNamespaces = ["common", 'errors'];
+const i18nNamespaces = ["common", "errors"];
 
 type Props = {
   children?: ReactNode;
@@ -31,8 +32,8 @@ export default async function RootLayout({
         resources={resources}
       >
         <Header locale={dynamicParams?.locale} />
-        <main className={`flex min-h-screen flex-col `}>{children}</main>
-        {/*     <Footer /> */}
+        <main className={`flex min-h-screen flex-col`}>{children}</main>
+        <Footer />
       </TranslationsProvider>
 
       {/* GoogleAnalytics */}

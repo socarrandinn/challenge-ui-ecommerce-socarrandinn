@@ -1,6 +1,6 @@
 "use client";
 
-import { GridIcon, LayoutGrid } from "lucide-react";
+import { LayoutGrid, LayoutGridIcon } from "lucide-react";
 import { useId } from "react";
 
 import { useTranslation } from "react-i18next";
@@ -52,8 +52,8 @@ const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
 
           {/* all categories */}
           <SelectItem value={ALL_CATEGORY}>
-            <SquareItem className="!bg-blue-100 text-primary">
-              <GridIcon className="h-4 w-4 text-primary" />
+            <SquareItem className="!bg-primary">
+              <LayoutGridIcon className="h-4 w-4 text-white" />
             </SquareItem>
             <span className="truncate">{t("category.all")}</span>
           </SelectItem>

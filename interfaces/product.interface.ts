@@ -12,10 +12,12 @@ export interface IProduct {
 
 export interface IProductSection {
   products: IProduct[];
-  combo?: ReactNode
+  componentCombo?: ReactNode
 };
 
 
 export enum PRODUCT_COLLECTION {
-  RECOMMENDED = 'recommended'
+  RECOMMENDED = 'recommended',
+  MORE_SALES = 'more-sales',
+  MORE_RECENT = 'most-recent',
 }

@@ -53,13 +53,13 @@ export function Rating({
             <StartIcon
               className={cn(
                 ratingSize[size],
-                "fill-orange-dark  cursor-pointer",
+                "fill-[#FCC106] cursor-pointer",
                 (
                   hoverValue !== null
                     ? star <= hoverValue
                     : star <= selectedValue
                 )
-                  ? "fill-orange-dark"
+                  ? "fill-[#FCC106]"
                   : "fill-orange-light"
               )}
             />

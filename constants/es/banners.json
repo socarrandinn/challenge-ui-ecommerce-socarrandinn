@@ -67,5 +67,74 @@
       },
       "text": "ffgfgfgfgfgg"
     }
+  ],
+  "card": [
+    {
+      "id": "banner-card-1",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/card/mobile/banner-card-1.webp",
+          "height": 190,
+          "width": 389
+        },
+        "desktop": {
+          "src": "/images/banner/card/desktop/banner-card-1.webp",
+          "height": 229,
+          "width": 469
+        }
+      },
+      "text": "ffgfgfgfgfgg"
+    },
+    {
+      "id": "banner-card-2",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/card/mobile/banner-card-2.webp",
+          "height": 190,
+          "width": 389
+        },
+        "desktop": {
+          "src": "/images/banner/card/desktop/banner-card-2.webp",
+          "height": 229,
+          "width": 469
+        }
+      },
+      "text": "ffgfgfgfgfgg"
+    },
+    {
+      "id": "banner-card-3",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/card/mobile/banner-card-3.webp",
+          "height": 190,
+          "width": 389
+        },
+        "desktop": {
+          "src": "/images/banner/card/desktop/banner-card-3.webp",
+          "height": 229,
+          "width": 469
+        }
+      },
+      "text": "ffgfgfgfgfgg"
+    }
+  ],
+
+  "banner-four": [
+    {
+      "id": "banner-four",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/banner-four/mobile/banner-four.webp",
+          "height": 277,
+          "width": 390
+        },
+        "desktop": {
+          "src": "/images/banner/banner-four/desktop/banner-four.webp",
+          "height": 405,
+          "width": 570
+        }
+      },
+      "text": "Completo de vitaminas y analgésicos"
+    }
   ]
 }

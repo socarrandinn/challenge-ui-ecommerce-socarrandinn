@@ -3,7 +3,31 @@
     "title": "Obtén todo, justo aquí"
   },
 
-  "product-1": {
-    "title": "Recomendado para tí"
+  "product": {
+    "recommended": "Recomendado para tí",
+    "more-sales": "Lo más vendido",
+    "recent": "De lo más reciente"
+  },
+  "what-you-need": {
+    "title": "Lo que Necesitas, Cuando lo Necesitas.",
+    "cards": {
+      "payment": {
+        "title": "Paga desde donde estés",
+        "subtitle": "Paga con tarjeta de débito o crédito desde cualquier parte del mundo donde te encuentres."
+      },
+      "shipping": {
+        "title": "Envío gratis desde $50 USD",
+        "subtitle": "Con solo estar registrado, tienes envíos gratis para un grupo de productos."
+      },
+      "location": {
+        "title": "Entregas en todo el país",
+        "subtitle": "LLevamos tu pedido seguro y con garantía hasta la puerta de tu casa."
+      }
+    }
+  },
+
+  "find-everything":{
+    "title":"Encuentra todo en un solo lugar.",
+    "subtitle":"Medicamentos, suplementos, vitaminas, analgésicos y antiinflamatorios, cuidado personal y mucho más."
   }
 }
