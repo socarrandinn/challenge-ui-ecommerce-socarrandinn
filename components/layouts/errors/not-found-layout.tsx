@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { CircleOffIcon } from "lucide-react";
 import { TransTypography } from "@/components/core/trans-typography";
+import { CATALOG_MENU } from "@/constants/navigation";
 
 export default function NotFoundLayout() {
   return (
@@ -17,19 +18,12 @@ export default function NotFoundLayout() {
             <TransTypography
               className="text-4xl lg:text-5xl font-bold text-primary"
               as="p"
-              message="errors:notFound.title"
+              message="errors:not-found.title"
             />
             <TransTypography
               className="text-xl lg:text-2xl font-medium"
               as="p"
-              message="errors:notFound.subtitle"
-            />
-
-            {/* notes */}
-            <TransTypography
-              className="text-sm font-semibold mt-2"
-              as="p"
-              message="errors:notFound.note.title"
+              message="errors:not-found.subtitle"
             />
 
             {/* Action Button */}
@@ -39,10 +33,10 @@ export default function NotFoundLayout() {
               variant={"default"}
               className="mt-4 mr-auto"
             >
-              <Link href="/">
+              <Link href={CATALOG_MENU.list}>
                 <TransTypography
                   className="text-sm"
-                  message="common:goToProduct"
+                  message="common:go-to-catalog"
                 />
               </Link>
             </Button>

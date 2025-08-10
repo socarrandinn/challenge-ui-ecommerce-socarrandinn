@@ -48,5 +48,24 @@
       },
       "text": "Pellentesque urna lectus laoreet auctor enim dignissim dictum torquent porta vehicula nascetur blandit sagittis neque"
     }
+  ],
+
+  "banner-two": [
+    {
+      "id": "hero-1",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/banner-two/mobile/banner-two.webp",
+          "height": 474,
+          "width": 959
+        },
+        "desktop": {
+          "src": "/images/banner/banner-two/desktop/banner-two.webp",
+          "height": 240,
+          "width": 390
+        }
+      },
+      "text": "ffgfgfgfgfgg"
+    }
   ]
 }

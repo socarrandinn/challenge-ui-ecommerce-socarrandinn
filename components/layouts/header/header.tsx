@@ -13,7 +13,7 @@ import HeaderWrapper from "./header-wrapper";
 import { ChildrenProps } from "@/interfaces/common.types";
 import { Logo } from "@/components/core/logo";
 import HeaderSearch from "./header-serach";
-import UserMenu from "@/components/user-menu";
+import UserMenu from "@/components/core/user-menu/user-menu";
 import { Menu } from "lucide-react";
 import HeaderMobileNavbar from "./header-mobile-navbar";
 import { allCategoryService } from "@/modules/common/services/category.service";

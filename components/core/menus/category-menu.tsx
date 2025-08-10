@@ -1,6 +1,6 @@
 "use client";
 
-import { LayoutGrid } from "lucide-react";
+import { GridIcon, LayoutGrid } from "lucide-react";
 import { useId } from "react";
 
 import { useTranslation } from "react-i18next";
@@ -23,6 +23,8 @@ type Props = ClassNameProps & {
   onCategoryChange?: (categoryId: string) => void;
 };
 
+const ALL_CATEGORY = "all";
+
 const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
   const { t } = useTranslation("common");
   const id = useId();
@@ -34,7 +36,7 @@ const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
   };
 
   return (
-    <Select onValueChange={handleValueChange}>
+    <Select onValueChange={handleValueChange} defaultValue={ALL_CATEGORY}>
       <SelectTrigger
         id={id}
         className={cn(
@@ -47,6 +49,14 @@ const CategoryMenu = ({ categories, className, onCategoryChange }: Props) => {
       <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2">
         <SelectGroup>
           <SelectLabel>{t("category.all")}</SelectLabel>
+
+          {/* all categories */}
+          <SelectItem value={ALL_CATEGORY}>
+            <SquareItem className="!bg-blue-100 text-primary">
+              <GridIcon className="h-4 w-4 text-primary" />
+            </SquareItem>
+            <span className="truncate">{t("category.all")}</span>
+          </SelectItem>
 
           {categories?.map((category) => {
             const Icon = CATEGORY_ICONS?.[category.icon] || LayoutGrid;

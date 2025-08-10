@@ -1,0 +1,124 @@
+{
+  "recommended": [
+    {
+      "id": "1",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-1.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 1.5,
+      "name": "Luvit Ampolla inyectable",
+      "rating": 4
+    },
+    {
+      "id": "2",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-2.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 25.5,
+      "name": "Vitamina B, Nicotinamida",
+      "rating": 4
+    },
+    {
+      "id": "3",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-3.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 10.5,
+      "name": "Neurobion",
+      "rating": 5
+    },
+    {
+      "id": "4",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-4.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 10.5,
+      "name": "Gerber GOM MAST",
+      "rating": 4
+    },
+    {
+      "id": "5",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-5.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 12.5,
+      "name": "Mentol Chino 500g",
+      "rating": 4
+    },
+    {
+      "id": "6",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-6.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 75.5,
+      "name": "Neuressens",
+      "rating": 4
+    },
+    {
+      "id": "7",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-7.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 25.5,
+      "name": "Medox ABC Jarabe",
+      "rating": 4
+    },
+    {
+      "id": "8",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-8.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 26.5,
+      "name": "Dominal, Paracetamol 500g",
+      "rating": 4
+    },
+    {
+      "id": "9",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-9.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 75.5,
+      "name": "Diflox",
+      "rating": 4
+    },
+    {
+      "id": "10",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-10.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 75.5,
+      "name": "Analgan Rapid Paracetamol",
+      "rating": 4
+    }
+  ]
+}

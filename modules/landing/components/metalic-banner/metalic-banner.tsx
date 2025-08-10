@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { IBannerImage } from "@/interfaces/banner.interface";
 import { cn } from "@/lib/utils";
 

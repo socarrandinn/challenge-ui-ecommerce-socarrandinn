@@ -1,6 +1,5 @@
 import {
   BoltIcon,
-  BookOpenIcon,
   Layers2Icon,
   LogOutIcon,
   PinIcon,

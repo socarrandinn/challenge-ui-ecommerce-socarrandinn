@@ -6,7 +6,7 @@ import { Header } from "@/components/layouts/header/header";
 
 export const metadata = commonMeta;
 
-const i18nNamespaces = ["common"];
+const i18nNamespaces = ["common", 'errors'];
 
 type Props = {
   children?: ReactNode;

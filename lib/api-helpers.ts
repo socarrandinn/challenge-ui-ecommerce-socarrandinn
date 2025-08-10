@@ -6,6 +6,7 @@ import { getCookie } from "@/app/actions/cookies";
 import i18nConfig from "@/i18nConfig";
 import { IProduct } from '../../../../Smartly Digital/rental_ecommerce/definitions/product';
 import { BANNER_POSITION } from "@/interfaces/banner.interface";
+import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
 
 
 // Función para simular tiempo de carga del servidor
@@ -84,13 +85,13 @@ export const handleCategoriesResponse = () => {
 };
 
 // Función específica para productos
-export const handleProductsResponse = () => {
-  return handleApiResponse("products", "products", "Error al cargar productos");
+export const handleProductsResponse = (collection: PRODUCT_COLLECTION) => {
+  return handleApiResponse(collection, "products", "Error al cargar productos");
 };
 
 // Función específica para banners
 export const handleBannersResponse = (position: BANNER_POSITION) => {
-  return handleApiResponse(position,"banners", "Error al cargar banners");
+  return handleApiResponse(position, "banners", "Error al cargar banners");
 };
 
 // Función para productos con filtros
