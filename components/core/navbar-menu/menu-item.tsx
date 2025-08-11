@@ -71,7 +71,7 @@ export const MenuItem = ({
   const linkContent = useMemo(
     () => (
       <>
-        {Icon && <Icon className="min-w-8 fill-current" aria-hidden="true" />}
+        {Icon && <Icon className="min-w-8" aria-hidden="true" />}
         <LongText text={t(name)} lineClamp={1} className="text-nowrap" />
       </>
     ),

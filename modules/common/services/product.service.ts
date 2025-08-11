@@ -1,6 +1,6 @@
 import { ApiResponse } from '@/interfaces/api.interface';
 import { ApiServerSide } from '@/lib/api.services/api-server-side.service';
-import { PRODUCT_LIST_KEY, PRODUCT_ONE_KEY } from '@/modules/common/constants/query';
+import { PRODUCT_COLLECTION_KEY, PRODUCT_LIST_KEY, PRODUCT_ONE_KEY } from '@/modules/common/constants/query';
 import { IProduct, PRODUCT_COLLECTION } from '@/interfaces/product.interface';
 
 
@@ -12,7 +12,7 @@ export const allProduct = async (config?: any): Promise<ApiResponse<IProduct[]>>
 
 export const getProductsByPosition = async (collection: PRODUCT_COLLECTION, config?: any): Promise<ApiResponse<IProduct[]>> => {
   return await ApiServerSide.get(`/api/products/position/${collection}`, {
-    next: { ...config, tags: [PRODUCT_LIST_KEY] },
+    next: { ...config, tags: [PRODUCT_COLLECTION_KEY] },
   });
 };
 

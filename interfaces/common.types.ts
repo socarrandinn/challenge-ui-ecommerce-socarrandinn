@@ -5,17 +5,17 @@ export type ChildrenProps = {
     children?: ReactNode | undefined;
 };
 
-export type ClassNameProps= {
+export type ClassNameProps = {
     className?: string
 };
 
 export type IState = {
-  code: number;
-  name: string;
-  slug: string;
+    code: number;
+    name: string;
+    slug: string;
 };
 
 
-export type TProps={
+export type TProps = {
     t: TFunction<["translation", ...string[]], undefined>
 }

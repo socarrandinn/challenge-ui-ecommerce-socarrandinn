@@ -5,7 +5,7 @@ import React from "react";
 
 const Logo = ({ className }: ClassNameProps) => {
   return (
-    <Link className="flex items-center gap-2" href="/">
+    <Link className="md:flex items-center gap-2" href="/">
       <span
         className={cn(
           "bg-gradient-to-r from-primary to-primary/70 bg-clip-text tracking-tight text-transparent text-xl font-bold truncate",

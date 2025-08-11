@@ -4,6 +4,7 @@ import {
   CircleDollarSign,
   CircleQuestionMark,
   PackageIcon,
+  UsersRoundIcon,
 } from "lucide-react";
 
 export const CATALOG_MENU = {
@@ -20,7 +21,7 @@ export const NAVBAR: IMenuItem[] = [
   {
     name: "common:menu.navbar.about-us",
     href: "/pages/about-us",
-    icon: ArchiveIcon,
+    icon: UsersRoundIcon,
   },
   {
     name: "common:menu.navbar.delivery",

@@ -35,7 +35,12 @@ export const Header = async ({ locale }: HeaderProps) => {
 
   const renderContent = () => (
     <HeaderWrapper>
-      <Container className="pt-8 pb-6">
+      <Container className="flex md:hidden w-full justify-end bg-muted p-0">
+        <div>
+          <LanguageChanger locale={locale} />
+        </div>
+      </Container>
+      <Container className="pt:3 md:pt-8 pb-6  ">
         <div className="flex h-12 items-center justify-between">
           <div className="flex items-center gap-2">
             {/* Mobile menu button */}
@@ -77,7 +82,9 @@ export const Header = async ({ locale }: HeaderProps) => {
             </Suspense>
 
             {/* language */}
-            <LanguageChanger locale={locale} />
+            <div className="hidden md:block">
+              <LanguageChanger locale={locale} />
+            </div>
 
             {/* product cart */}
             <Cart />

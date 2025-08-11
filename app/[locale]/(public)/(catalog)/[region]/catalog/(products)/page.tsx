@@ -1,10 +1,5 @@
 import initTranslations from "@/app/i18n";
-import { IProduct } from "@/interfaces/product.interface";
-import {
-  allProduct,
-  findOneProduct,
-} from "@/modules/common/services/product.service";
-import ProductDetail from "@/modules/products/containers/product-details-container";
+import { allProduct } from "@/modules/common/services/product.service";
 import ProductListContainer from "@/modules/products/containers/product-list-container";
 import TranslationsProvider from "@/providers/translation-provider";
 
@@ -19,6 +14,7 @@ export async function generateStaticParams() {
   return [
     {
       region: process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
+      locale: "es",
     },
   ];
 }
@@ -41,7 +37,7 @@ const i18nNamespaces = ["home", "common", "errors"];
 export default async function Home({ params }: Props) {
   const { locale } = await params;
   const { resources } = await initTranslations(locale, i18nNamespaces);
-  const { data } = await allProduct({});
+  const { data } = await allProduct();
 
   return (
     <div className="w-full">

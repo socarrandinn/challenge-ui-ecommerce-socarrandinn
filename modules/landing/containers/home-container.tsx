@@ -1,5 +1,4 @@
 import { TProps } from "@/interfaces/common.types";
-import React from "react";
 import { allBannerService } from "../../common/services/banner.service";
 import { BANNER_COLLECTION, IBanner } from "@/interfaces/banner.interface";
 import HomeHeroContainer from "./home-hero.container";
@@ -64,7 +63,7 @@ const HomeContainer = async ({}: Props) => {
       />
 
       {/* banner card */}
-      <HomeBannerMini banners={bannerCard || []} />
+      <HomeBannerCard banners={bannerCard || []} />
 
       {/* product more sale */}
       <HomeProductContainer
@@ -85,7 +84,7 @@ const HomeContainer = async ({}: Props) => {
       />
 
       {/* mini 2 banner */}
-      <HomeBannerCard banners={mini2 || []} />
+      <HomeBannerMini banners={mini2 || []} />
 
       {/* Save on your care section  */}
       <HomeSaveOnYourCareContainer />

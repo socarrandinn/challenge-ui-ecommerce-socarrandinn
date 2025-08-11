@@ -2,9 +2,11 @@
 import { handlePagesResponse, } from "@/lib/api-helpers";
 import { NextRequest } from "next/server";
 
+interface Params {
+  slug: string;
+}
 export async function GET(req: NextRequest,
-  { params }: { params: { slug: string } }) {
-  const { slug } = params;
-  console.log(slug, 'sSS')
+  { params }: { params: Promise<Params> }) {
+  const { slug } = await params;
   return handlePagesResponse(slug);
 }

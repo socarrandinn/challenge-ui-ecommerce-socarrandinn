@@ -5,5 +5,6 @@ export const BANNER_LIST_KEY = 'banner-list'
 
 export const PRODUCT_LIST_KEY = 'product-list'
 export const PRODUCT_ONE_KEY = 'product-one'
+export const PRODUCT_COLLECTION_KEY = 'product-collection'
 
 export const PAGE_ONE_KEY = 'page-one'

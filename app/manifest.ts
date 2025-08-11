@@ -2,15 +2,13 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    head: {
-      title: 'Ecommerce App',
-      meta: [
-        { name: 'description', content: 'Ecommerce App - Tienda online' },
-        { name: 'keywords', content: 'ecommerce, tienda online, compras online' },
-        { name: 'author', content: 'Ecommerce App' },
-        { name: 'robots', content: 'index,follow' },
-      ],
-    },
+    name: 'Ecommerce App',
+    short_name: 'Ecommerce',
+    description: 'Ecommerce App - Tienda online',
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#fff',
+    theme_color: '#fff',
     icons: [
       {
         src: '/favicon-16x16.png',
@@ -23,10 +21,5 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/png',
       },
     ],
-    description: 'Ecommerce App - Tienda online',
-    start_url: '/',
-    display: 'standalone',
-    background_color: '#fff',
-    theme_color: '#fff',
   }
 }

@@ -42,16 +42,17 @@ const HeaderSearch = ({ className, categories }: Props) => {
 
         <div className="relative w-full lg:w-auto">
           {/* icon search */}
-          <SearchIcon className="h-5 w-5 stroke-3 absolute text-primary left-3 top-1/2 -translate-y-1/2 rounded-md" />
+          <SearchIcon className="hidden md:flex h-5 w-5 stroke-3 absolute text-primary left-3 top-1/2 -translate-y-1/2 rounded-md" />
 
           <Input
             type="text"
             placeholder={t("search")}
             value={search || ""}
             className={cn(
-              "pl-10 pr-16 py-3",
+              "pl-2 md:pl-10 pr-16 py-3",
               "lg:min-w-[18rem] h-[46px] xl:min-w-[25rem] !w-full glass-glow bg-sidebar-primary-foreground ",
-              "lg:rounded-r-md lg:rounded-l-none rounded-r-md"
+              "lg:rounded-r-md lg:rounded-l-none rounded-r-md",
+              "text-sm md:text-lg"
             )}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}

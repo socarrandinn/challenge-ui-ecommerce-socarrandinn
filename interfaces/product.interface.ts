@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from "react"; 
 import { IImageMedia } from "./banner.interface";
 
 export interface IProduct {

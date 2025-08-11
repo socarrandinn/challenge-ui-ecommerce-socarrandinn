@@ -1,6 +1,7 @@
 import initTranslations from "@/app/i18n";
 import { ICategory } from "@/interfaces/category.interface";
 import { IProduct } from "@/interfaces/product.interface";
+import { getOneProductMetadata } from "@/lib/metadata/product.metadata";
 import {
   allCategoryService,
   findOneCategory,
@@ -11,7 +12,7 @@ import {
 } from "@/modules/common/services/product.service";
 import ProductDetail from "@/modules/products/containers/product-details-container";
 import TranslationsProvider from "@/providers/translation-provider";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
@@ -20,39 +21,42 @@ type Props = {
 export const revalidate = 60;
 export const dynamicParams = true;
 
-export async function generateMetadata(
-  { params }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // read route params
-  const { slug } = await params;
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const { data: product, error } = await findOneProduct(slug);
 
-  // fetch data
-  const product = await findOneProduct(slug);
+  if (!product || error)
+    return {
+      title: "Page Not Found",
+      description: "The requested page could not be found.",
+    };
 
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
+  const metadata = getOneProductMetadata({
+    product: product as IProduct,
+    slug,
+    locale,
+  });
 
-  return {
-    title: product.data?.name,
-    openGraph: {
-      images: [product?.data?.image?.src ?? "", ...previousImages],
-    },
-  };
+  return metadata;
 }
 
 export async function generateStaticParams(params: any) {
-  const { data } = await allProduct();
+  try {
+    const { data } = await allProduct();
 
-  if (!data?.length) {
-    return [];
+    if (!data?.length) {
+      return [];
+    }
+
+    return data?.map((product) => ({
+      region: params?.region || process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
+      slug: String(product?.id),
+      locale: params?.locale || "es",
+    }));
+  } catch (error) {
+    console.error("Failed to generate static params:", error);
+    return []; // Return empty array to prevent build failure
   }
-
-  return data?.map((product) => ({
-    region: params?.region || process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
-    slug: String(product?.id),
-    locale: params?.locale || "es",
-  }));
 }
 
 const i18nNamespaces = ["home", "common", "errors"];
