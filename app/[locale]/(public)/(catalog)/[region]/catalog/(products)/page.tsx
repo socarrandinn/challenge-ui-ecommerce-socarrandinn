@@ -10,15 +10,6 @@ type Props = {
 export const revalidate = 60;
 export const dynamicParams = true;
 
-export async function generateStaticParams() {
-  return [
-    {
-      region: process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
-      locale: "es",
-    },
-  ];
-}
-
 export async function generateMetadata() {
   return {
     title: "Catálogo de productos",

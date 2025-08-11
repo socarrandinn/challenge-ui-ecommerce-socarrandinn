@@ -6,16 +6,6 @@ import CmsContainer from "@/components/layouts/cms-container";
 export const revalidate = 60;
 export const dynamicParams = true;
 
-const PAGES = ["about-us", "payment", "delivery", "faq"];
-
-// Corregido: generateStaticParams debe recibir el contexto completo
-export async function generateStaticParams() {
-  return PAGES?.map((page) => ({
-    slug: String(page),
-    locale: "es",
-  }));
-}
-
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
 };

@@ -6,20 +6,18 @@ import {
   allCategoryService,
   findOneCategory,
 } from "@/modules/common/services/category.service";
-import {
-  allProduct,
-  findOneProduct,
-} from "@/modules/common/services/product.service";
+import { findOneProduct } from "@/modules/common/services/product.service";
 import ProductDetail from "@/modules/products/containers/product-details-container";
 import TranslationsProvider from "@/providers/translation-provider";
 import { Metadata } from "next";
 
-type Props = {
-  params: Promise<{ locale: string; slug: string }>;
-};
 
 export const revalidate = 60;
 export const dynamicParams = true;
+
+type Props = {
+  params: Promise<{ locale: string; slug: string }>;
+};
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
@@ -38,25 +36,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   });
 
   return metadata;
-}
-
-export async function generateStaticParams(params: any) {
-  try {
-    const { data } = await allProduct();
-
-    if (!data?.length) {
-      return [];
-    }
-
-    return data?.map((product) => ({
-      region: params?.region || process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
-      slug: String(product?.id),
-      locale: params?.locale || "es",
-    }));
-  } catch (error) {
-    console.error("Failed to generate static params:", error);
-    return []; // Return empty array to prevent build failure
-  }
 }
 
 const i18nNamespaces = ["home", "common", "errors"];
