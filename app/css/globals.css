@@ -4,3 +4,4 @@
 /* Additional styles */
 @import "./styles/theme.css";
 @import "./styles/component.css";
+@import "./styles/utils.css";

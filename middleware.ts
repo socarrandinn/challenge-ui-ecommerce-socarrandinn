@@ -9,7 +9,7 @@ export default async function middleware(req: NextRequest) {
 
   // If the conditions are not met, continue with the request normally.
   return i18nRedirect;
-};
+}
 
 // Apply middleware only to relevant routes
 export const config = {

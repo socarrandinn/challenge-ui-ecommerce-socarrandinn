@@ -1,0 +1,26 @@
+{
+  "category": {
+    "title": "Get everything, right here"
+  },
+  "product": {
+    "recommended": "Recommended for you",
+    "more-sales": "Best seller"
+  },
+  "what-you-need": {
+    "title": "What You Need, When You Need It.",
+    "cards": {
+      "payment": {
+        "title": "Pay from wherever you are",
+        "description": "Pay with a debit or credit card from anywhere in the world."
+      },
+      "shipping": {
+        "title": "Free shipping from $50 USD",
+        "description": "Just by registering, you have free shipping for a group of products."
+      },
+      "location": {
+        "title": "Deliveries throughout the country",
+        "description": "We take your order safely and with guarantee to the door of your house."
+      }
+    }
+  }
+}

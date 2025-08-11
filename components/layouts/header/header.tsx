@@ -3,7 +3,6 @@ import Container from "@/components/layouts/container";
 import {
   Sheet,
   SheetContent,
-  SheetFooter,
   SheetHeader,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -14,14 +13,15 @@ import HeaderWrapper from "./header-wrapper";
 import { ChildrenProps } from "@/interfaces/common.types";
 import { Logo } from "@/components/core/logo";
 import HeaderSearch from "./header-serach";
-import UserMenu from "@/components/user-menu";
-import { MapPinIcon, Menu, XIcon } from "lucide-react";
+import UserMenu from "@/components/core/user-menu/user-menu";
+import { Menu } from "lucide-react";
 import HeaderMobileNavbar from "./header-mobile-navbar";
 import { allCategoryService } from "@/modules/common/services/category.service";
 import LanguageChanger from "@/components/core/language-changer/language-changer";
 import HeaderNavbar from "./header-navbar";
-import StateMenu from "@/components/core/menus/states-menu";
 import StateButton from "@/components/core/state-button/state-button";
+import { getCookie } from "@/app/actions/cookies";
+import { ENV_CONFIG } from "@/lib/config/env.config";
 
 type HeaderProps = ChildrenProps & {
   locale: string;
@@ -29,6 +29,8 @@ type HeaderProps = ChildrenProps & {
 
 export const Header = async ({ locale }: HeaderProps) => {
   const { data: categories } = await allCategoryService();
+  const cookieStateName = await getCookie(ENV_CONFIG.cookies.X_STATE_NAME);
+  const cookieStateCode = await getCookie(ENV_CONFIG.cookies.X_STATE_CODE);
 
   const renderContent = () => (
     <HeaderWrapper>
@@ -55,7 +57,13 @@ export const Header = async ({ locale }: HeaderProps) => {
           <div className="flex items-center gap-3">
             {/*    <StateMenu /> */}
             {/* region */}
-            <StateButton className="hidden lg:flex" />
+            <StateButton
+              className="hidden lg:flex"
+              state={{
+                code: Number(cookieStateCode),
+                name: cookieStateName,
+              }}
+            />
 
             {/* search */}
             <Suspense>

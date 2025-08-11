@@ -11,7 +11,7 @@ const SquareItem = ({
   <span
     data-square
     className={cn(
-      "bg-muted  flex size-6 items-center justify-center rounded text-xs font-medium",
+      "bg-muted flex size-6 items-center justify-center rounded text-xs font-medium",
       className
     )}
     aria-hidden="true"

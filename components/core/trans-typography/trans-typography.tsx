@@ -1,14 +1,14 @@
-'use client'; 
-import React, { memo, JSX } from 'react';
-import { Trans } from 'react-i18next';
+"use client";
+import React, { memo, JSX } from "react";
+import { Trans } from "react-i18next";
 
 const defaultComponents = {
-  primary: <span className="text-primary" />,  
+  primary: <span className="text-primary" />,
   error: <span className="text-danger" />,
-  bold: <span className="font-bold" />, 
+  bold: <span className="font-bold" />,
   semibold: <span className="font-semibold" />,
   br: <br />,
-  breakWord: <p className="!pt-2 md:pt-4" />
+  breakWord: <p className="!pt-2 md:pt-4" />,
 };
 
 export type TransTypographyProps = {
@@ -24,8 +24,8 @@ const TransTypography = ({
   values = {},
   components = {},
   className,
-  as: Component = 'span'
-}:  TransTypographyProps) => {
+  as: Component = "span",
+}: TransTypographyProps) => {
   return (
     <Component className={className}>
       <Trans
@@ -38,4 +38,3 @@ const TransTypography = ({
 };
 
 export default memo(TransTypography);
-
