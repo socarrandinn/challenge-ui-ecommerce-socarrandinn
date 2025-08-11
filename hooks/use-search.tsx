@@ -153,15 +153,11 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
     search,
     category,
     priceRange,
-    page,
-    size,
     state,
     clearFilter,
     setState,
     setSearch,
     setCategory,
-    setPage,
-    setSize,
     setClearFilter,
     resetFilters,
     loadDefaultParams,
@@ -176,8 +172,6 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
       loadDefaultParams({
         search: searchParams.search || "",
         category: searchParams.category,
-        page: searchParams.page || "1",
-        size: searchParams.size || size,
         clearFilter: false,
         scrollPosition: 0,
       });
@@ -185,11 +179,8 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
   }, [
     searchParams?.search,
     searchParams?.category,
-    searchParams?.page,
-    searchParams?.size,
     loadDefaultParams,
     searchParams,
-    size,
   ]);
 
   // Función de búsqueda mejorada
@@ -262,8 +253,6 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
     onClearAllFilters,
     setCategory,
     setSearch,
-    setPage,
-    setSize,
     setClearFilter,
     resetFilters,
     setState,
@@ -272,7 +261,6 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
     search,
     category,
     priceRange,
-    page,
     clearFilter,
 
     // Estados derivados

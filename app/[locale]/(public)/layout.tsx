@@ -7,7 +7,7 @@ import Footer from "@/components/core/footer/footer";
 
 export const metadata = commonMeta;
 
-const i18nNamespaces = ["common", "errors"];
+const i18nNamespaces = ["common", "errors", "cart"];
 
 type Props = {
   children?: ReactNode;
@@ -35,9 +35,6 @@ export default async function RootLayout({
         <main className={`flex min-h-screen flex-col z-0`}>{children}</main>
         <Footer />
       </TranslationsProvider>
-
-      {/* GoogleAnalytics */}
-      {/* add analytic aquí */}
     </main>
   );
 }

@@ -24,4 +24,5 @@ export enum PRODUCT_COLLECTION {
   RECOMMENDED = 'recommended',
   MORE_SALES = 'more-sales',
   MORE_RECENT = 'most-recent',
+
 }

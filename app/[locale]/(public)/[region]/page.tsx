@@ -1,7 +1,6 @@
 import initTranslations from "@/app/i18n";
 import HomeContainer from "@/modules/landing/containers/home-container";
 import TranslationsProvider from "@/providers/translation-provider";
-import * as React from "react";
 
 export const revalidate = 60;
 export const dynamicParams = true;

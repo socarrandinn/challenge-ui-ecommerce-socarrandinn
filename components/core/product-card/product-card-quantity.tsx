@@ -5,13 +5,37 @@ import { ClassNameProps } from "@/interfaces/common.types";
 import { cn } from "@/lib/utils";
 import { useCart } from "@/providers/stores/use-cart-store";
 import { Minus, PlusIcon } from "lucide-react";
-import React from "react";
+import { useCallback } from "react";
 
 type Props = ClassNameProps & {
   item: ICartItem;
+  quantity?: number;
+  setQuantity?: (value: number) => void;
 };
-const ProductCardQuantity = ({ item, className }: Props) => {
+const ProductCardQuantity = ({
+  item,
+  className,
+  quantity,
+  setQuantity,
+}: Props) => {
   const { decrementQuantity, incrementQuantity } = useCart();
+
+  const handleDecrement = useCallback(() => {
+    if (setQuantity) {
+      setQuantity((quantity ?? 0) - 1);
+      return;
+    }
+    return decrementQuantity(item?.product);
+  }, [decrementQuantity, item?.product, quantity, setQuantity]);
+
+  const handleIncrement = useCallback(() => {
+    if (setQuantity) {
+      setQuantity((quantity ?? 0) + 1);
+      return;
+    }
+    return incrementQuantity(item?.product);
+  }, [incrementQuantity, item?.product, quantity, setQuantity]);
+
   return (
     <div
       className={cn(
@@ -24,8 +48,8 @@ const ProductCardQuantity = ({ item, className }: Props) => {
         className={
           "flex w-auto items-center justify-center text-muted-foreground transition-colors hover:bg-muted hover:text-foreground rounded-none"
         }
-        disabled={item.quantity <= 1}
-        onClick={() => decrementQuantity(item.product)}
+        disabled={(item.quantity ?? 0) <= 1}
+        onClick={handleDecrement}
         variant={"ghost"}
       >
         <Minus className="h-2 w-2 md:h-3 md:w-3" />
@@ -38,7 +62,7 @@ const ProductCardQuantity = ({ item, className }: Props) => {
           flex h-full min-w-6 md:min-w-10 items-center justify-center text-xs font-medium
           `}
       >
-        {item.quantity}
+        {quantity || item.quantity || 0}
       </span>
       <Button
         size={"sm"}
@@ -49,7 +73,7 @@ const ProductCardQuantity = ({ item, className }: Props) => {
                     transition-colors
                     hover:bg-muted hover:text-foreground
                   `}
-        onClick={() => incrementQuantity(item.product)}
+        onClick={handleIncrement}
         variant={"ghost"}
       >
         <PlusIcon className="h-2 w-2 md:h-3 md:w-3" />

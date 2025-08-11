@@ -1,4 +1,3 @@
-"use client";
 import { IProduct } from "@/interfaces/product.interface";
 import ProductFavoriteButton from "./product-favorite-button";
 import Image from "next/image";
@@ -6,13 +5,12 @@ import { Rating } from "../rating/rating";
 import ProductPriceCard from "./product-card-price";
 import LongText from "../long-text/long-text";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import ProductCardQuantity from "./product-card-quantity";
-import ProductCartIcon from "./product-cart-button";
 import Link from "next/link";
 import { CATALOG_MENU } from "@/constants/navigation";
 import { ClassNameProps } from "@/interfaces/common.types";
 import { cn } from "@/lib/utils";
 import ProductTag from "./product-new";
+import ProductCartAction from "./product-card-action";
 
 type Props = ClassNameProps & {
   product: IProduct;
@@ -87,19 +85,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
         </Link>
 
         {/* Quantity and Add to Cart */}
-        <div className="flex flex-row gap-1 justify-between items-center mt-1">
-          <ProductCardQuantity
-            item={{
-              product: product?.id,
-              productSnapShot: product,
-              price: 0,
-              quantity: 0,
-              totalPrice: 0,
-              unitPrice: 0,
-            }}
-          />
-          <ProductCartIcon />
-        </div>
+        <ProductCartAction product={product} />
       </CardContent>
     </Card>
   );

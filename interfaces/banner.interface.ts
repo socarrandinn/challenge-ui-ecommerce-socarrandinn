@@ -19,5 +19,7 @@ export interface IBanner {
 export enum BANNER_COLLECTION {
   HERO = 'hero',
   BANNER_CARD = 'card',
-  BANNER_FOUR = 'banner-four'
+  BANNER_FOUR = 'banner-four',
+  MINI_1 = 'mini-1',
+  MINI_2 = 'mini-2',
 }

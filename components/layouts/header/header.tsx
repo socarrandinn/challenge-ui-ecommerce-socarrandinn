@@ -23,6 +23,7 @@ import StateButton from "@/components/core/state-button/state-button";
 import StateButtonSkeleton from "@/components/core/state-button/state-button-skeleton";
 import { getCookie } from "@/app/actions/cookies";
 import { ENV_CONFIG } from "@/lib/config/env.config";
+import { Cart } from "@/components/core/cart";
 
 type HeaderProps = ChildrenProps & {
   locale: string;
@@ -77,6 +78,10 @@ export const Header = async ({ locale }: HeaderProps) => {
 
             {/* language */}
             <LanguageChanger locale={locale} />
+
+            {/* product cart */}
+            <Cart />
+
             {/* User menu */}
             <UserMenu />
           </div>

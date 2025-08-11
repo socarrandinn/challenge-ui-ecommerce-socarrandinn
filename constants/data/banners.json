@@ -50,24 +50,6 @@
     }
   ],
 
-  "banner-two": [
-    {
-      "id": "hero-1",
-      "imagen": {
-        "mobile": {
-          "src": "/images/banner/banner-two/mobile/banner-two.webp",
-          "height": 474,
-          "width": 959
-        },
-        "desktop": {
-          "src": "/images/banner/banner-two/desktop/banner-two.webp",
-          "height": 240,
-          "width": 390
-        }
-      },
-      "text": "ffgfgfgfgfgg"
-    }
-  ],
   "card": [
     {
       "id": "banner-card-1",
@@ -135,6 +117,44 @@
         }
       },
       "text": "Completo de vitaminas y analgésicos"
+    }
+  ],
+
+  "mini-1": [
+    {
+      "id": "mini-1",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/mini/mobile/mini-1.webp",
+          "height": 85,
+          "width": 1447
+        },
+        "desktop": {
+          "src": "/images/banner/mini/desktop/mini-1.webp",
+          "height": 188,
+          "width": 388
+        }
+      },
+      "text": "ffgfgfgfgfgg"
+    }
+  ],
+
+  "mini-2": [
+    {
+      "id": "mini-2",
+      "imagen": {
+        "mobile": {
+          "src": "/images/banner/mini/mobile/mini-2.webp",
+          "height": 188,
+          "width": 388
+        },
+        "desktop": {
+          "src": "/images/banner/mini/desktop/mini-2.webp",
+          "height": 85,
+          "width": 1447
+        }
+      },
+      "text": "ffgfgfgfgfgg"
     }
   ]
 }

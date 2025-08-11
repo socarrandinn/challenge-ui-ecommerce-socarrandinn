@@ -12,7 +12,7 @@ const Logo = ({ className }: ClassNameProps) => {
           className
         )}
       >
-        MI Nombre
+        E-COMMERCE
       </span>
     </Link>
   );

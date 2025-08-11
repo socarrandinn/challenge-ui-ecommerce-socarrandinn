@@ -1,111 +1,103 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { IBannerImage } from "@/interfaces/banner.interface";
 import { cn } from "@/lib/utils";
 
 interface MetallicBannerProps {
   imagen: IBannerImage;
   alt: string;
+  href?: string;
   onClick?: () => void;
   className?: string;
+  openInNewTab?: boolean;
 }
 
 const MetallicBanner: React.FC<MetallicBannerProps> = ({
   imagen,
   alt = "Banner Image",
+  href,
   onClick = () => console.log("Banner clicked"),
   className = "",
+  openInNewTab = false,
 }) => {
-  return (
+  const handleClick = () => {
+    if (!href) {
+      onClick();
+    }
+  };
+
+  const bannerContent = (
     <div
       className={cn(
-        "relative mx-auto rounded-xl overflow-hidden shadow-2xl group cursor-pointer",
+        "relative mx-auto rounded-xl overflow-hidden group cursor-pointer transform transition-all duration-500",
+        "hover:shadow-2xl hover:shadow-blue-500/20",
         className
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {/* Imagen de fondo responsive */}
       <div className="relative w-full h-full">
-        {/* image desktop */}
+        {/* Image desktop */}
         <Image
           src={imagen?.desktop?.src}
           alt={alt}
           width={imagen?.desktop?.width}
           height={imagen?.desktop?.height}
-          className="object-contain w-full h-full transition-transform duration-700 hidden md:block"
+          className="object-contain w-full h-full transition-all duration-700 hidden md:block"
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
         />
 
-        {/* image mobile */}
+        {/* Image mobile */}
         <Image
           src={imagen?.mobile?.src}
           alt={alt}
           width={imagen?.mobile?.width}
           height={imagen?.mobile?.height}
-          className="object-contain w-full h-full transition-transform duration-700 block md:hidden"
+          className="object-contain w-full h-full transition-all duration-700 block md:hidden"
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
 
-        {/* Overlay oscuro */}
-        <div className="absolute inset-0  transition-opacity duration-500 group-hover:bg-black/10" />
+        {/* Overlay con gradiente metálico */}
+        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700" />
 
-        {/* Brillo metálico en los bordes */}
+        {/* Efecto de barrido diagonal mejorado */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="absolute -top-full -left-full w-full h-full bg-gradient-to-br from-transparent via-white/30 to-transparent transform rotate-12 translate-x-[-100%] translate-y-[-100%] group-hover:translate-x-[200%] group-hover:translate-y-[200%] transition-transform duration-1000 ease-out" />
+        </div>
+
+        {/* Bordes metálicos brillantes mejorados */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/60 to-transparent animate-pulse" />
-          <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/60 to-transparent animate-pulse" />
-          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-transparent via-white/60 to-transparent animate-pulse" />
-          <div className="absolute top-0 right-0 w-1 h-full bg-gradient-to-b from-transparent via-white/60 to-transparent animate-pulse" />
+          {/* Borde superior */}
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300/80 to-transparent animate-pulse" />
+          {/* Borde inferior */}
+          <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-blue-300/80 to-transparent animate-pulse delay-200" />
+          {/* Borde izquierdo */}
+          <div className="absolute top-0 left-0 w-px h-full bg-gradient-to-b from-transparent via-blue-300/80 to-transparent animate-pulse delay-100" />
+          {/* Borde derecho */}
+          <div className="absolute top-0 right-0 w-px h-full bg-gradient-to-b from-transparent via-blue-300/80 to-transparent animate-pulse delay-300" />
         </div>
       </div>
-
-      {/* Partículas brillantes mejoradas */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white rounded-full animate-ping delay-100" />
-        <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-ping delay-300" />
-        <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-ping delay-500" />
-        <div className="absolute bottom-1/4 right-1/3 w-1 h-1 bg-white rounded-full animate-ping delay-700" />
-        <div className="absolute top-1/2 left-1/2 w-1 h-1 bg-white rounded-full animate-ping delay-900" />
-      </div>
-
-      <style jsx>{`
-        @keyframes diagonal-sweep {
-          0% {
-            transform: rotate(-45deg) translate(-100%, -100%);
-          }
-          100% {
-            transform: rotate(-45deg) translate(100%, 100%);
-          }
-        }
-
-        @keyframes light-sweep {
-          0% {
-            transform: rotate(-45deg) translate(-150%, -150%);
-            opacity: 0;
-          }
-          10% {
-            opacity: 1;
-          }
-          90% {
-            opacity: 1;
-          }
-          100% {
-            transform: rotate(-45deg) translate(150%, 150%);
-            opacity: 0;
-          }
-        }
-
-        .animate-diagonal-sweep {
-          animation: diagonal-sweep 2s ease-in-out;
-        }
-
-        .animate-light-sweep {
-          animation: light-sweep 2s ease-in-out 0.2s;
-        }
-      `}</style>
     </div>
   );
+
+  // Si hay href, envolver con Link de Next.js
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target={openInNewTab ? "_blank" : undefined}
+        rel={openInNewTab ? "noopener noreferrer" : undefined}
+        className="block"
+      >
+        {bannerContent}
+      </Link>
+    );
+  }
+
+  return bannerContent;
 };
 
 export default MetallicBanner;

@@ -5,7 +5,6 @@ import { BANNER_COLLECTION, IBanner } from "@/interfaces/banner.interface";
 import HomeHeroContainer from "./home-hero.container";
 import { allCategoryService } from "@/modules/common/services/category.service";
 import HomeCategoryContainer from "./home-category-container";
-import HomeMiniBanner1Container from "./home-mini-banner-1-container";
 import HomeProductContainer from "./home-product-container";
 import { getProductsByPosition } from "../../common/services/product.service";
 import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
@@ -14,6 +13,7 @@ import HomeWhatYouNeedContainer from "./home-what-you-need-container";
 import BannerCombo from "../components/banner-combo/banner-combo";
 import HomeFindEveryThingInOnePlaceContainer from "./home-find-everything-in-one-place-container";
 import HomeSaveOnYourCareContainer from "./home-save-on-your-care-container";
+import HomeBannerMini from "./home-banner-mini-container";
 
 type Props = TProps & {
   params: Promise<{ locale: string }>;
@@ -29,6 +29,9 @@ const HomeContainer = async ({}: Props) => {
   const { data: bannerFour } = await allBannerService(
     BANNER_COLLECTION.BANNER_FOUR
   );
+
+  const { data: mini1 } = await allBannerService(BANNER_COLLECTION.MINI_1);
+  const { data: mini2 } = await allBannerService(BANNER_COLLECTION.MINI_2);
 
   const { data: categories } = await allCategoryService();
   const { data: recommended } = await getProductsByPosition(
@@ -50,8 +53,8 @@ const HomeContainer = async ({}: Props) => {
       {/* categories sections */}
       <HomeCategoryContainer categories={categories?.slice(0, 8) || []} />
 
-      {/* mini banner */}
-      <HomeMiniBanner1Container />
+      {/* mini 1 banner */}
+      <HomeBannerMini banners={mini1 || []} />
 
       {/* product recommended */}
       <HomeProductContainer
@@ -61,7 +64,7 @@ const HomeContainer = async ({}: Props) => {
       />
 
       {/* banner card */}
-      <HomeBannerCard banners={bannerCard || []} />
+      <HomeBannerMini banners={bannerCard || []} />
 
       {/* product more sale */}
       <HomeProductContainer
@@ -80,6 +83,9 @@ const HomeContainer = async ({}: Props) => {
         title="home:product.recent"
         componentCombo={<BannerCombo banner={bannerFour?.[0] as IBanner} />}
       />
+
+      {/* mini 2 banner */}
+      <HomeBannerCard banners={mini2 || []} />
 
       {/* Save on your care section  */}
       <HomeSaveOnYourCareContainer />

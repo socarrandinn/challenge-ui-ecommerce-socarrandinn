@@ -1,0 +1,19 @@
+{
+  "myCart": "Mi carrito",
+  "products": "Producto {{count}}",
+  "products_other": "Productos {{count}}",
+  "emptyCart": {
+    "title": "Tu carrito está vacío",
+    "subtitle": "Parece que aún no has añadido nada a tu carrito."
+  },
+  "quantity": "Cantidad",
+  "price": "Precio",
+  "total": "Total",
+  "remove": "Eliminar",
+  "action": {
+    "proceedToPayment": "Proceder al pago",
+    "continueShopping": "Continuar comprando",
+    "clearCart": "Vaciar carrito",
+    "addToCart": "Añadir"
+  }
+}

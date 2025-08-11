@@ -1,0 +1,19 @@
+{
+  "myCart": "My Cart",
+  "products": "{{count}} Product",
+  "products_other": "{{count}} Products",
+  "emptyCart": {
+    "title": "Your cart is empty",
+    "subtitle": "It seems that you haven't added anything to your cart yet."
+  },
+  "quantity": "Quantity",
+  "price": "Price",
+  "total": "Total",
+  "remove": "Remove",
+  "action": {
+    "proceedToPayment": "Proceed to Payment",
+    "continueShopping": "Continue Shopping",
+    "clearCart": "Clear Cart",
+    "addToCart": "Add to Cart"
+  }
+}

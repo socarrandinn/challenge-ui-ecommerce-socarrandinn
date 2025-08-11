@@ -37,7 +37,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function StaticCmsPage({ params }: Props) {
   const { slug } = await params;
-  console.log(slug, "ENTRE");
 
   const { data: page, error } = await findOnePage(slug);
 

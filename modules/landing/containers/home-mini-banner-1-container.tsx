@@ -30,8 +30,8 @@ const HomeMiniBanner1Container = () => {
         </div>
         {/* desktop */}
         <Image
-          src={"/images/banner/banner-two/banner-two-desktop.webp"}
-          alt={"Banner"}
+          src={"/images/banner/mini/banner-two-desktop.webp"}
+          alt={"banner-two-desktop"}
           fill
           className={
             "w-1/2 h-full object-contain object-right z-[1] hidden md:block"
@@ -40,8 +40,8 @@ const HomeMiniBanner1Container = () => {
 
         {/* mobile */}
         <Image
-          src={"/images/banner/banner-two/banner-two-mobile.webp"}
-          alt={"Banner"}
+          src={"/images/banner/mini/banner-two-mobile.webp"}
+          alt={"banner-two-mobile"}
           fill
           className={
             "w-full h-full object-contain object-right z-[1] block md:hidden"
