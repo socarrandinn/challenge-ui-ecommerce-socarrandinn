@@ -2,9 +2,8 @@
 import fs from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
-import { IProduct } from '../../../../Smartly Digital/rental_ecommerce/definitions/product';
 import { BANNER_COLLECTION } from "@/interfaces/banner.interface";
-import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
+import { IProduct, PRODUCT_COLLECTION } from "@/interfaces/product.interface";
 
 
 
