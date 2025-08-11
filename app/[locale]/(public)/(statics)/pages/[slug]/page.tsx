@@ -6,6 +6,8 @@ import CmsContainer from "@/components/layouts/cms-container";
 export const revalidate = 60;
 export const dynamicParams = true;
 
+// const PAGES = ["about-us", "payment", "delivery", "faq"];
+
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
 };
