@@ -26,7 +26,7 @@ const variantStyle = {
 const CategoryCard = ({ category, className, variant }: Props) => {
   const Icon = CATEGORY_ICONS[category.icon];
   return (
-    <Link href={CATALOG_MENU.path(`category/${category?.id}/page/1`)}>
+    <Link href={CATALOG_MENU.path(`category/${category?.id}`)}>
       <Card
         className={cn(
           "h-[170px] w-[145px] relative overflow-hidden flex flex-col items-center justify-center",

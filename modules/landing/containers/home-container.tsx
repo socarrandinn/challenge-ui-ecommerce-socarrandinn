@@ -7,7 +7,7 @@ import { allCategoryService } from "@/modules/common/services/category.service";
 import HomeCategoryContainer from "./home-category-container";
 import HomeMiniBanner1Container from "./home-mini-banner-1-container";
 import HomeProductContainer from "./home-product-container";
-import { getProductByPosition } from "../../common/services/product.service";
+import { getProductsByPosition } from "../../common/services/product.service";
 import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
 import HomeBannerCard from "./home-banner-card-container";
 import HomeWhatYouNeedContainer from "./home-what-you-need-container";
@@ -31,15 +31,15 @@ const HomeContainer = async ({}: Props) => {
   );
 
   const { data: categories } = await allCategoryService();
-  const { data: recommended } = await getProductByPosition(
+  const { data: recommended } = await getProductsByPosition(
     PRODUCT_COLLECTION.RECOMMENDED
   );
 
-  const { data: moreSales } = await getProductByPosition(
+  const { data: moreSales } = await getProductsByPosition(
     PRODUCT_COLLECTION.MORE_SALES
   );
 
-  const { data: moreRecent } = await getProductByPosition(
+  const { data: moreRecent } = await getProductsByPosition(
     PRODUCT_COLLECTION.MORE_RECENT
   );
 

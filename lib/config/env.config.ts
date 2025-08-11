@@ -5,6 +5,7 @@ export const ENV_CONFIG = {
     NEXT_PUBLIC_BACKEND_URL: 'http://localhost:3000',
   },
   cookies: {
+    NEXT_LOCALE: 'NEXT_LOCALE',
     DEFAULT_REGION: process.env.NEXT_PUBLIC_DEFAULT_REGION || 'hab',
 
     X_REGION: 'x-region',

@@ -60,7 +60,7 @@ export function Rating({
                     : star <= selectedValue
                 )
                   ? "fill-[#FCC106]"
-                  : "fill-orange-light"
+                  : "fill-slate-300"
               )}
             />
           </button>

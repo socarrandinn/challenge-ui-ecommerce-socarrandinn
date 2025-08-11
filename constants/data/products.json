@@ -1,4 +1,203 @@
 {
+  "all": [
+    {
+      "id": "1",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-1.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 1.5,
+      "name": "Luvit Ampolla inyectable",
+      "rating": 4,
+      "isNew": true,
+      "description": "<p><strong>Luvit Ampolla inyectable</strong> es un suplemento inyectable formulado para fortalecer el sistema inmune y mejorar el bienestar general.</p>"
+    },
+    {
+      "id": "2",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-2.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 25.5,
+      "name": "Vitamina B, Nicotinamida",
+      "rating": 4,
+      "description": "<p>Complejo de <em>Vitamina B</em> con nicotinamida, diseñado para apoyar el metabolismo energético y la salud del sistema nervioso.</p>"
+    },
+    {
+      "id": "3",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-3.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 10.5,
+      "name": "Neurobion",
+      "rating": 5,
+      "description": "<p><strong>Neurobion</strong> ayuda a mantener un sistema nervioso saludable gracias a su fórmula rica en vitaminas del complejo B.</p>"
+    },
+    {
+      "id": "4",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-4.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 10.5,
+      "name": "Gerber GOM MAST",
+      "rating": 4,
+      "description": "<p>Suplemento <strong>Gerber GOM MAST</strong> para el cuidado de la salud, ideal para mejorar la recuperación y el rendimiento físico.</p>"
+    },
+    {
+      "id": "5",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-5.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 12.5,
+      "name": "Mentol Chino 500g",
+      "rating": 4,
+      "description": "<p><strong>Mentol Chino</strong> en presentación de 500g, ideal para aliviar dolores musculares y proporcionar una sensación refrescante.</p>"
+    },
+    {
+      "id": "6",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-6.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 75.5,
+      "name": "Neuressens",
+      "rating": 4,
+      "description": "<p><strong>Neuressens</strong> es un suplemento avanzado diseñado para favorecer el funcionamiento del sistema nervioso.</p>"
+    },
+    {
+      "id": "7",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-7.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 25.5,
+      "name": "Medox ABC Jarabe",
+      "rating": 4,
+      "discount": -50.0,
+      "description": "<p><strong>Medox ABC Jarabe</strong> ayuda en el tratamiento de afecciones respiratorias y fortalece el sistema inmunitario.</p>"
+    },
+    {
+      "id": "8",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-8.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 26.5,
+      "name": "Dominal, Paracetamol 500g",
+      "rating": 4,
+      "description": "<p><strong>Dominal</strong> con paracetamol 500g, eficaz para el alivio de dolores y reducción de la fiebre.</p>"
+    },
+    {
+      "id": "9",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-9.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 75.5,
+      "name": "Diflox",
+      "rating": 4,
+      "description": "<p><strong>Diflox</strong> es un medicamento de uso controlado para tratar infecciones bacterianas.</p>"
+    },
+    {
+      "id": "10",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-10.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 75.5,
+      "name": "Analgan Rapid Paracetamol",
+      "rating": 4,
+      "description": "<p><strong>Analgan Rapid</strong> con paracetamol proporciona alivio rápido y efectivo del dolor.</p>"
+    },
+    {
+      "id": "11",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-11.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 10.5,
+      "name": "Vitamina C",
+      "rating": 4,
+      "description": "<p>Suplemento de <strong>Vitamina C</strong> que fortalece el sistema inmune y protege contra radicales libres.</p>"
+    },
+    {
+      "id": "12",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-12.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 35.5,
+      "name": "Citramag",
+      "rating": 4,
+      "description": "<p><strong>Citramag</strong> es un suplemento a base de magnesio y vitamina C, ideal para el bienestar muscular y óseo.</p>"
+    },
+    {
+      "id": "13",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-13.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 10.5,
+      "name": "Desinflamex forte",
+      "rating": 4,
+      "description": "<p><strong>Desinflamex forte</strong> ayuda a reducir la inflamación y aliviar el dolor muscular.</p>"
+    },
+    {
+      "id": "14",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-14.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 15.5,
+      "name": "X Ray Dol TABx250",
+      "rating": 4,
+      "description": "<p><strong>X Ray Dol</strong> en presentación de 250 tabletas, indicado para el tratamiento de dolores y molestias musculares.</p>"
+    },
+    {
+      "id": "15",
+      "categoría": "1",
+      "image": {
+        "src": "/images/product/product-15.webp",
+        "height": 240,
+        "width": 276
+      },
+      "price": 12.3,
+      "name": "Aspirina advance",
+      "rating": 4,
+      "description": "<p><strong>Aspirina Advance</strong> proporciona alivio rápido contra el dolor y ayuda a reducir la fiebre.</p>"
+    }
+  ],
   "recommended": [
     {
       "id": "1",
@@ -10,7 +209,8 @@
       },
       "price": 1.5,
       "name": "Luvit Ampolla inyectable",
-      "rating": 4
+      "rating": 4,
+      "isNew": true
     },
     {
       "id": "2",
@@ -82,7 +282,8 @@
       },
       "price": 25.5,
       "name": "Medox ABC Jarabe",
-      "rating": 4
+      "rating": 4,
+      "discount": 50.0
     },
     {
       "id": "8",

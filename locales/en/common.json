@@ -1,1 +1,55 @@
-{}
+{
+  "save": "Save",
+  "cancel": "Cancel",
+  "search": "Search products, categories or brands...",
+  "go-to-catalog": "Go to catalog",
+  "explore-product": "Explore products",
+  "send": "Send",
+  "loading": "Loading...",
+  "product-catalog": "Product catalog",
+  "addToCart": "Add to Cart",
+  "product": {
+    "new": "New"
+  },
+  "menu": {
+    "navbar": {
+      "catalog": "Catalog",
+      "about-us": "About us",
+      "delivery": "Delivery",
+      "payment": "Payment",
+      "faq": "FAQ"
+    }
+  },
+  "languages": {
+    "es": "ES",
+    "en": "EN"
+  },
+  "category": {
+    "all": "All"
+  },
+  "state": {
+    "select": "Select state",
+    "title": "Select the state",
+    "subtitle": "Select the state where your store is located to get the products and prices available in your region"
+  },
+  "fields": {
+    "email": "Email"
+  },
+  "footer": {
+    "subscribeTo": {
+      "title": "Subscribe here to learn more about our offers",
+      "subtitle": "Register now to receive the latest updates on promotions and coupons. Don't worry, we don't spam!",
+      "accepted": "By subscribing you accept our <orange>Terms and conditions and Privacy and cookie policy.</orange>"
+    },
+    "items": {
+      "phone": {
+        "title": "Monday to Friday: 8 a. m. to 9 p. m.",
+        "subtitle": "0 800 300-353"
+      },
+      "mail": {
+        "title": "Need help with your order?",
+        "subtitle": "info@example.com"
+      }
+    }
+  }
+}

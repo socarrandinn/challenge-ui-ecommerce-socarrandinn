@@ -4,10 +4,11 @@ import { IImageMedia } from "./banner.interface";
 export interface IProduct {
   id: string,
   name: string,
+  description: string,
   image: IImageMedia,
   price: number,
   rating: number,
-  categoría: string
+  category: string
 
   discount?: number
   isNew?: boolean

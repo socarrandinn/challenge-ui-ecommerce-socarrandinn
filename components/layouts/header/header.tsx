@@ -20,6 +20,7 @@ import { allCategoryService } from "@/modules/common/services/category.service";
 import LanguageChanger from "@/components/core/language-changer/language-changer";
 import HeaderNavbar from "./header-navbar";
 import StateButton from "@/components/core/state-button/state-button";
+import StateButtonSkeleton from "@/components/core/state-button/state-button-skeleton";
 import { getCookie } from "@/app/actions/cookies";
 import { ENV_CONFIG } from "@/lib/config/env.config";
 
@@ -29,8 +30,7 @@ type HeaderProps = ChildrenProps & {
 
 export const Header = async ({ locale }: HeaderProps) => {
   const { data: categories } = await allCategoryService();
-  const cookieStateName = await getCookie(ENV_CONFIG.cookies.X_STATE_NAME);
-  const cookieStateCode = await getCookie(ENV_CONFIG.cookies.X_STATE_CODE);
+  const regionCookie = await getCookie(ENV_CONFIG.cookies.X_REGION);
 
   const renderContent = () => (
     <HeaderWrapper>
@@ -55,15 +55,10 @@ export const Header = async ({ locale }: HeaderProps) => {
           </div>
 
           <div className="flex items-center gap-3">
-            {/*    <StateMenu /> */}
             {/* region */}
-            <StateButton
-              className="hidden lg:flex"
-              state={{
-                code: Number(cookieStateCode),
-                name: cookieStateName,
-              }}
-            />
+            <Suspense fallback={<StateButtonSkeleton />}>
+              <StateButton className="hidden lg:flex" region={regionCookie} />
+            </Suspense>
 
             {/* search */}
             <Suspense>
@@ -76,7 +71,10 @@ export const Header = async ({ locale }: HeaderProps) => {
 
           <div className="flex items-center gap-1 md:gap-2">
             {/* region */}
-            <StateButton className="flex lg:hidden" />
+            <Suspense fallback={<StateButtonSkeleton />}>
+              <StateButton className="flex lg:hidden" region={regionCookie} />
+            </Suspense>
+
             {/* language */}
             <LanguageChanger locale={locale} />
             {/* User menu */}
