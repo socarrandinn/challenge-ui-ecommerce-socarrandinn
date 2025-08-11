@@ -16,7 +16,7 @@ const ProductFavoriteButton = ({ className }: ClassNameProps) => {
       onClick={toggleFavorite}
       variant={"outline"}
       className={cn(
-        "absolute w-10 h-10 top-4 right-4 p-1 rounded-full bg-white z-10",
+        "absolute w-8 h-8 md:w-10 md:h-10 top-2 right-2 md:top-4 md:right-4 p-1 rounded-full bg-white z-10",
         className,
         isFavorite
           ? "text-orange-dark"

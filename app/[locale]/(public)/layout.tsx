@@ -32,7 +32,7 @@ export default async function RootLayout({
         resources={resources}
       >
         <Header locale={dynamicParams?.locale} />
-        <main className={`flex min-h-screen flex-col`}>{children}</main>
+        <main className={`flex min-h-screen flex-col z-0`}>{children}</main>
         <Footer />
       </TranslationsProvider>
 

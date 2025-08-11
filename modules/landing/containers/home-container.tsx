@@ -44,8 +44,10 @@ const HomeContainer = async ({}: Props) => {
   );
 
   return (
-    <section className="flex flex-col gap-10 mt-8">
+    <section className="flex flex-col gap-5 md:gap-10 mt-4 md:mt-8 px-1.5 md:px-0">
       <HomeHeroContainer hero={hero || []} />
+
+      {/* categories sections */}
       <HomeCategoryContainer categories={categories?.slice(0, 8) || []} />
 
       {/* mini banner */}

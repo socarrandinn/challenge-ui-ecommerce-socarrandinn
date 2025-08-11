@@ -28,7 +28,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
       )}
     >
       {/* Product Image Section */}
-      <CardHeader className="relative bg-gradient-to-br bg-white h-[160px] md:h-[224px] flex  items-center justify-center p-0">
+      <CardHeader className="relative bg-gradient-to-br bg-white h-[140px] md:h-[224px] flex  items-center justify-center p-0">
         {/* Heart Icon */}
         <ProductFavoriteButton /* productId={product.id} */ />
 

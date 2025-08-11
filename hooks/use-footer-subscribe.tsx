@@ -3,6 +3,7 @@ import { useMutation } from "./use-mutation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import z from "zod/v3";
 import { subscribeTo } from "@/modules/common/services/subscribe.service";
+import { toast } from "sonner";
 
 export const subscribeSchema = z.object({
   email: z
@@ -22,7 +23,13 @@ export const useFooterSubscribe = () => {
   });
 
   const { mutate, isLoading, reset, error, data, isSuccess } = useMutation(
-    async (payload: ISubscribe) => await subscribeTo(payload)
+    async (payload: ISubscribe) => await subscribeTo(payload),
+    {
+      onSuccess: () => {
+        toast.success("se ha subscrito");
+        form.reset();
+      },
+    }
   );
 
   return {
@@ -34,7 +41,7 @@ export const useFooterSubscribe = () => {
     handleSubmit,
     mutate,
     onSubmit: handleSubmit((values) => {
-      console.log(values, 'values')
+      console.log(values, "values");
       mutate(values);
     }),
     reset: () => {

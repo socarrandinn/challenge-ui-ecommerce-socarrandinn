@@ -4,6 +4,8 @@ import { ClassNameProps } from "@/interfaces/common.types";
 import { CATEGORY_ICONS, ICategory } from "@/interfaces/category.interface";
 import { cn } from "@/lib/utils";
 import LongText from "@/components/core/long-text/long-text";
+import Link from "next/link";
+import { CATALOG_MENU } from "@/constants/navigation";
 
 type Props = ClassNameProps & {
   category: ICategory;
@@ -17,35 +19,39 @@ const variantStyle = {
   },
   other: {
     card: "bg-[#DADFF2]",
-    color: "text-principal",
+    color: "text-primary",
   },
 };
 
 const CategoryCard = ({ category, className, variant }: Props) => {
   const Icon = CATEGORY_ICONS[category.icon];
   return (
-    <Card
-      className={cn(
-        "h-[170px] w-[145px] relative overflow-hidden flex flex-col items-center justify-center",
-        variantStyle[variant].card,
-        className
-      )}
-    >
-      {variant === "first" && (
-        <Circle className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2" />
-      )}
-      <div className="flex flex-col gap-1 items-center">
-        <Icon className={cn("h-[60px] w-auto", variantStyle[variant].color)} />
-        <LongText
-          className={cn(
-            "text-center text-sm font-semibold",
-            variantStyle[variant].color
-          )}
-          text={category?.name}
-          lineClamp={2}
-        />
-      </div>
-    </Card>
+    <Link href={CATALOG_MENU.path(`category/${category?.id}/page/1`)}>
+      <Card
+        className={cn(
+          "h-[170px] w-[145px] relative overflow-hidden flex flex-col items-center justify-center",
+          variantStyle[variant].card,
+          className
+        )}
+      >
+        {variant === "first" && (
+          <Circle className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2" />
+        )}
+        <div className="flex flex-col gap-2 items-center">
+          <Icon
+            className={cn("h-[60px] w-auto", variantStyle[variant].color)}
+          />
+          <LongText
+            className={cn(
+              "text-center text-sm font-normal",
+              variantStyle[variant].color
+            )}
+            text={category?.name}
+            lineClamp={2}
+          />
+        </div>
+      </Card>
+    </Link>
   );
 };
 
