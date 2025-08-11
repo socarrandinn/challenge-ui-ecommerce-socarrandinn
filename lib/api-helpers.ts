@@ -2,11 +2,10 @@
 import fs from "fs";
 import path from "path";
 import { NextResponse } from "next/server";
-import { getCookie } from "@/app/actions/cookies";
-import i18nConfig from "@/i18nConfig";
 import { IProduct } from '../../../../Smartly Digital/rental_ecommerce/definitions/product';
 import { BANNER_COLLECTION } from "@/interfaces/banner.interface";
 import { PRODUCT_COLLECTION } from "@/interfaces/product.interface";
+
 
 
 // Función para simular tiempo de carga del servidor
@@ -18,14 +17,10 @@ export const simulateServerLoad = async (minMs = 200, maxMs = 800) => {
   await delay(loadTime);
 };
 
-// Función para obtener el locale actual
-export const getCurrentLocale = async () => {
-  return (await getCookie(process.env.NEXT_PUBLIC_LOCALES!)) ?? i18nConfig.defaultLocale;
-};
 
 // Función para construir ruta de archivo JSON
-export const buildJsonFilePath = (locale: string, filename: string) => {
-  return path.join(process.cwd(), "constants", locale, `${filename}.json`);
+export const buildJsonFilePath = (filename: string) => {
+  return path.join(process.cwd(), "constants", 'data', `${filename}.json`);
 };
 
 // Función para verificar si un archivo existe
@@ -49,11 +44,8 @@ export const handleApiResponse = async (dataKey: string, filename: string, custo
     // Simular carga del servidor
     await simulateServerLoad();
 
-    // Obtener locale
-    const locale = await getCurrentLocale();
-
     // Construir ruta del archivo
-    const filePath = buildJsonFilePath(locale, filename);
+    const filePath = buildJsonFilePath(filename);
 
     // Verificar si el archivo existe
     if (!fileExists(filePath)) {
@@ -85,7 +77,7 @@ export const handleCategoriesResponse = () => {
 };
 
 // Función específica para productos
-export const handleProductsResponse = (collection: PRODUCT_COLLECTION) => {
+export const handleProductsResponse = (collection: PRODUCT_COLLECTION | 'all' = 'all') => {
   return handleApiResponse(collection, "products", "Error al cargar productos");
 };
 
@@ -94,13 +86,16 @@ export const handleBannersResponse = (position: BANNER_COLLECTION) => {
   return handleApiResponse(position, "banners", "Error al cargar banners");
 };
 
+export const handlePagesResponse = (slug: string) => {
+  return handleApiResponse(slug, "pages", "Error al cargar la pagina");
+};
+
 // Función para productos con filtros
 export const handleFilteredProductsResponse = async (filters: any = {}) => {
   try {
     await simulateServerLoad();
 
-    const locale = await getCurrentLocale();
-    const filePath = buildJsonFilePath(locale, "products");
+    const filePath = buildJsonFilePath("products");
 
     if (!fileExists(filePath)) {
       return NextResponse.json(
@@ -110,7 +105,7 @@ export const handleFilteredProductsResponse = async (filters: any = {}) => {
     }
 
     const data = readJsonFile(filePath);
-    let products = data.products || data;
+    let products = data.all || data;
 
     // Aplicar filtros
     if (filters.category) {
@@ -118,17 +113,40 @@ export const handleFilteredProductsResponse = async (filters: any = {}) => {
         product.category?.toLowerCase() === filters.category.toLowerCase()
       );
     }
-
-
-    if (filters.minPrice) {
-      products = products.filter((product: IProduct) => product.price >= filters.minPrice);
-    }
-
-    if (filters.maxPrice) {
-      products = products.filter((product: IProduct) => product.price <= filters.maxPrice);
-    }
-
     return NextResponse.json(products);
+  } catch (error) {
+    console.error("Error al obtener productos filtrados:", error);
+    return NextResponse.json(
+      { error: "Error al cargar productos" },
+      { status: 500 }
+    );
+  }
+};
+
+
+export const handleFindOneProductResponse = async (productId: string) => {
+  try {
+    await simulateServerLoad();
+    const filePath = buildJsonFilePath("products");
+
+    if (!fileExists(filePath)) {
+      return NextResponse.json(
+        { error: "Idioma no soportado" },
+        { status: 404 }
+      );
+    }
+
+    const data = readJsonFile(filePath);
+    const products = data.all || data;
+    let product = {}
+
+    // Aplicar filtros
+    if (productId) {
+      product = products.find((product: IProduct) =>
+        product.id === productId
+      );
+    }
+    return NextResponse.json(product);
   } catch (error) {
     console.error("Error al obtener productos filtrados:", error);
     return NextResponse.json(

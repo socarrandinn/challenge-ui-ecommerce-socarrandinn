@@ -1,6 +1,5 @@
 import ProductCard from "@/components/core/product-card/product-card";
 import { IProductSection } from "@/interfaces/product.interface";
-import React from "react";
 import ProductCarrousel from "../product-carrousel/product-carrousel";
 
 const ProductListCombo = ({ products, componentCombo }: IProductSection) => {
@@ -10,12 +9,12 @@ const ProductListCombo = ({ products, componentCombo }: IProductSection) => {
       <div className="md:col-span-2">{componentCombo}</div>
 
       {/* products desktop */}
-      {products.map((product) => (
+      {products.map((product, index) => (
         <ProductCard
           className="hidden md:flex"
           imageClassName="md:h-[176px]"
           product={product}
-          key={product.id}
+          key={`${product?.id}-${index}`}
         />
       ))}
 

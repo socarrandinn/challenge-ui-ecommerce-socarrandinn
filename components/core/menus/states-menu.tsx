@@ -34,17 +34,14 @@ const StateMenu = ({ className }: Props) => {
           className
         )}
       >
-        <SelectValue placeholder={t('state.select')}/>
+        <SelectValue placeholder={t("state.select")} />
       </SelectTrigger>
       <SelectContent className="[&_*[role=option]]:ps-2 [&_*[role=option]]:pe-8 [&_*[role=option]>span]:start-auto [&_*[role=option]>span]:end-2 [&_*[role=option]>span]:flex [&_*[role=option]>span]:items-center [&_*[role=option]>span]:gap-2">
         <SelectGroup>
           <SelectLabel className="ps-2">{t("state.select")}</SelectLabel>
           {STATES?.map((state) => {
             return (
-              <SelectItem
-                value={state?.code?.toString()}
-                key={state?.code}
-              >
+              <SelectItem value={state?.slug} key={state?.code}>
                 <SquareItem className="!bg-blue-100 text-primary">
                   <MapPinIcon className="w-4 h-4" />
                 </SquareItem>

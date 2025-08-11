@@ -5,6 +5,9 @@
   "go-to-catalog": "Ir al catalogo",
   "explore-product": "Explorar productos",
   "send": "Enviar",
+  "loading": "Cargando...",
+  "product-catalog": "Catalogo de productos",
+  "addToCart": "Agregar al Carrito",
 
   "product": {
     "new": "Nuevo"

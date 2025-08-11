@@ -1,5 +1,5 @@
 import { RequestConfig } from "@/interfaces/request.interface";
-
+import { ENV_CONFIG } from "../config/env.config";
 
 enum Method {
   'GET' = 'GET',
@@ -13,6 +13,35 @@ const buildBackendUrl = (path: string) => {
   if (path?.startsWith('http') || path?.startsWith('https')) return path;
 
   return [process.env.NEXT_PUBLIC_BACKEND_URL!, path].join('');
+};
+
+// Función helper para obtener cookies
+const getCookie = (name: string): string | null => {
+  if (typeof document === 'undefined') return null; // SSR check
+
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop()?.split(';').shift() || null;
+  return null;
+};
+
+// Función para obtener headers con cookies de locale y region
+const getLocaleHeaders = (): Record<string, string> => {
+  const headers: Record<string, string> = {};
+
+  const locale = getCookie(ENV_CONFIG.cookies.NEXT_LOCALE);
+  const region = getCookie(ENV_CONFIG.cookies.X_REGION);
+
+  if (locale) {
+    headers['X-Locale'] = locale;
+    headers['Accept-Language'] = locale;
+  }
+
+  if (region) {
+    headers['X-Region'] = region;
+  }
+
+  return headers;
 };
 
 interface FetchResponse {
@@ -31,12 +60,6 @@ export class ApiService {
     this.defaultHeaders = {
       'Content-Type': 'application/json',
     };
-
-    // Add state header
-    const region = process.env.NEXT_PUBLIC_REGION_STATE
-    if (region) {
-      this.defaultHeaders['x-state'] = region;
-    }
   }
 
   private async executeWithTimeout(
@@ -98,11 +121,15 @@ export class ApiService {
       }
     }
 
-    // Prepare headers
+    // Obtener headers de locale y region desde cookies
+    const localeHeaders = getLocaleHeaders();
+
+    // Prepare headers with cookies de locale y region
     // @ts-ignore
     const requestHeaders: Record<string, string> = {
       ...this.defaultHeaders,
-      ...headers,
+      ...localeHeaders, // Agregar headers de locale y region
+      ...headers, // Los headers pasados por parámetro tienen prioridad
     };
 
     // Prepare fetch configuration
@@ -224,5 +251,5 @@ export class ApiService {
     return this.request(Method.DELETE, path, {
       ...config,
     });
-  };
+  }
 }

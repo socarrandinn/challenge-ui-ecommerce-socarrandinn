@@ -1,0 +1,22 @@
+{
+  "about-us": {
+    "slug": "about-us",
+    "title": "Sobre Nosotros",
+    "description": "Conoce más sobre nuestra empresa, misión y valores. Descubre qué nos hace únicos y por qué los clientes nos eligen."
+  },
+  "payment": {
+    "slug": "payment",
+    "title": "Métodos de Pago",
+    "description": "Información sobre opciones de pago aceptadas, transacciones seguras y políticas de pago para tu conveniencia."
+  },
+  "delivery": {
+    "slug": "delivery",
+    "title": "Información de Envío",
+    "description": "Detalles sobre nuestras opciones de envío, tiempos de entrega, costos y seguimiento de tus pedidos."
+  },
+  "faq": {
+    "slug": "faq",
+    "title": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a preguntas comunes sobre nuestros productos, servicios, proceso de compra y más."
+  }
+}

@@ -12,7 +12,7 @@ export type ClassNameProps= {
 export type IState = {
   code: number;
   name: string;
-  slug?: string;
+  slug: string;
 };
 
 

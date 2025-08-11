@@ -4,23 +4,32 @@
   },
   "product": {
     "recommended": "Recommended for you",
-    "more-sales": "Best seller"
+    "more-sales": "Best seller",
+    "recent": "Most recent"
   },
   "what-you-need": {
     "title": "What You Need, When You Need It.",
     "cards": {
       "payment": {
         "title": "Pay from wherever you are",
-        "description": "Pay with a debit or credit card from anywhere in the world."
+        "subtitle": "Pay with a debit or credit card from anywhere in the world."
       },
       "shipping": {
         "title": "Free shipping from $50 USD",
-        "description": "Just by registering, you have free shipping for a group of products."
+        "subtitle": "Just by registering, you have free shipping for a group of products."
       },
       "location": {
         "title": "Deliveries throughout the country",
-        "description": "We take your order safely and with guarantee to the door of your house."
+        "subtitle": "We take your order safely and with guarantee to the door of your house."
       }
     }
+  },
+  "mini-banner-1": {
+    "title": "Your Trusted Online Pharmacy.",
+    "subtitle": "Wide catalog of medicines and products for your well-being. <CatalogLink><bold>Explore our catalog</bold></CatalogLink>"
+  },
+  "find-everything": {
+    "title": "Find everything in one place.",
+    "subtitle": "Medicines, supplements, vitamins, analgesics and anti-inflammatories, personal care and much more."
   }
 }
