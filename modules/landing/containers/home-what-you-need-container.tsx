@@ -22,14 +22,14 @@ const HomeWhatYouNeedContainer = () => {
           src={"/images/pill.webp"}
           height={90}
           width={90}
-          className="absolute h-14 w-14 md:w-24 md:h-24 bottom-0 translate-y-1/2 left-30 rotate-260  lg:left-40 blur-[3px]"
+          className="absolute h-14 w-14 md:w-24 md:h-24 bottom-0 translate-y-1/2 left-30 rotate-260 lg:left-40 blur-[3px]"
         />
         <Image
           alt="pill-2"
           src={"/images/pill.webp"}
           height={60}
           width={60}
-          className="absolute top-0 -translate-y-1/2 right-4 lg:right-0 xl:-right-10 blur-[3px]"
+          className="absolute -top-2 -translate-y-1/2 right-0 blur-[3px]"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-4 py-12 md:py-6">

@@ -31,7 +31,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
     <div
       className={cn(
         "relative mx-auto rounded-xl overflow-hidden group cursor-pointer transform transition-all duration-500",
-        "hover:shadow-2xl hover:shadow-blue-500/20",
+        "hover:shadow-card",
         className
       )}
       onClick={handleClick}

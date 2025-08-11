@@ -49,10 +49,10 @@ const HeaderSearch = ({ className, categories }: Props) => {
             placeholder={t("search")}
             value={search || ""}
             className={cn(
-              "pl-2 md:pl-10 pr-16 py-3",
+              "pl-2 md:pl-10 pr-16 md:pr-2 py-3",
               "lg:min-w-[18rem] h-[46px] xl:min-w-[25rem] !w-full glass-glow bg-sidebar-primary-foreground ",
               "lg:rounded-r-md lg:rounded-l-none rounded-r-md",
-              "text-sm md:text-lg"
+              "text-xs md:text-sm"
             )}
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
@@ -62,18 +62,18 @@ const HeaderSearch = ({ className, categories }: Props) => {
           <Button
             size="sm"
             variant="default"
-            className="absolute !h-[46px] w-[50px] right-0 top-1/2 -translate-y-1/2  rounded-md"
+            className="absolute !h-[46px] w-[50px] right-0 top-1/2 -translate-y-1/2 rounded-md block md:hidden"
             onClick={onSearch}
           >
             <SearchIcon className="h-5 w-5 stroke-3 text-white " />
           </Button>
 
-          {/* Botón para limpiar búsqueda individual (solo si hay texto) */}
+          {/* clear */}
           {search && (
             <Button
               size="sm"
               variant="ghost"
-              className="absolute right-14 top-1/2 -translate-y-1/2  hover:bg-transparent p-0 hover:text-primary"
+              className="absolute right-14 md:right-4 top-1/2 -translate-y-1/2  hover:bg-transparent p-0 hover:text-primary"
               onClick={handleClearSearch}
             >
               <XIcon className="!h-3 !w-3 stroke-3" />
