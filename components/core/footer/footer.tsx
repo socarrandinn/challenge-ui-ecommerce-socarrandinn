@@ -2,7 +2,6 @@ import React from "react";
 import { TransTypography } from "../trans-typography";
 import Container from "@/components/layouts/container";
 import FooterSubscribeInput from "./footer-subscribe-input";
-import Link from "next/link";
 import { PhoneIcon } from "../icons/phone-icon";
 import { MailIcon } from "lucide-react";
 
@@ -31,9 +30,7 @@ const Footer = () => {
               className="text-[13px] font-light text-white"
               as="p"
               components={{
-                orange: (
-                  <Link className="text-orange-dark font-bold" href={"#"} />
-                ),
+                orange: <span className="text-orange-dark font-bold" />,
               }}
             />
           </div>

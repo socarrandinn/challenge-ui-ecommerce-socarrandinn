@@ -45,7 +45,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           width={imagen?.desktop?.width}
           height={imagen?.desktop?.height}
           className="object-contain w-full h-full transition-all duration-700 hidden md:block"
-          priority
+          unoptimized={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
         />
 
@@ -56,7 +56,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           width={imagen?.mobile?.width}
           height={imagen?.mobile?.height}
           className="object-contain w-full h-full transition-all duration-700 block md:hidden"
-          priority
+          unoptimized={true}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
 

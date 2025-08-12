@@ -12,10 +12,7 @@ const CartFooter = () => {
   const { t } = useTranslation("cart");
   const { items, totalItems, totalPrice } = useCart();
   const isDesktop = useMediaQuery("(min-width: 768px)");
-  const subtotal = items.reduce(
-    (acc, item) => acc + item.price * item.quantity,
-    0
-  );
+  const subtotal = items.reduce((acc, item) => acc + item.price, 0);
   return (
     <div className="flex flex-col gap-2">
       <div className="flex items-center justify-between">

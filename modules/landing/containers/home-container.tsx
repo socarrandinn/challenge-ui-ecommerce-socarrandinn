@@ -11,7 +11,6 @@ import HomeBannerCard from "./home-banner-card-container";
 import HomeWhatYouNeedContainer from "./home-what-you-need-container";
 import BannerCombo from "../components/banner-combo/banner-combo";
 import HomeFindEveryThingInOnePlaceContainer from "./home-find-everything-in-one-place-container";
-import HomeSaveOnYourCareContainer from "./home-save-on-your-care-container";
 import HomeBannerMini from "./home-banner-mini-container";
 
 type Props = TProps & {
@@ -85,9 +84,6 @@ const HomeContainer = async ({}: Props) => {
 
       {/* mini 2 banner */}
       <HomeBannerMini banners={mini2 || []} />
-
-      {/* Save on your care section  */}
-      <HomeSaveOnYourCareContainer />
 
       {/* Find everything in one place section */}
       <HomeFindEveryThingInOnePlaceContainer />

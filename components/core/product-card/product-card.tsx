@@ -54,7 +54,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
             width={200}
             height={200}
             className={cn(
-              "object-contain max-w-full max-h-full",
+              "object-contain max-w-full max-h-full object-center aspect-auto",
               imageClassName
             )}
             priority={false}

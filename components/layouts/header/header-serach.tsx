@@ -15,7 +15,6 @@ type Props = ClassNameProps & {
 };
 const HeaderSearch = ({ className, categories }: Props) => {
   const { t } = useTranslation("common");
-
   const { search, setSearch, onSearch, onClear } = useSearch();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,10 +61,10 @@ const HeaderSearch = ({ className, categories }: Props) => {
           <Button
             size="sm"
             variant="default"
-            className="absolute !h-[46px] w-[50px] right-0 top-1/2 -translate-y-1/2 rounded-md block md:hidden"
+            className="absolute !h-[46px] w-[50px] p-0 flex flex-row justify-center right-0 top-1/2 -translate-y-1/2 rounded-md  md:hidden"
             onClick={onSearch}
           >
-            <SearchIcon className="h-5 w-5 stroke-3 text-white " />
+            <SearchIcon className="size-6 stroke-3 text-white" />
           </Button>
 
           {/* clear */}

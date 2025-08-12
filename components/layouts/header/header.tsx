@@ -97,7 +97,7 @@ export const Header = async ({ locale }: HeaderProps) => {
         {/* search */}
         <Suspense>
           <HeaderSearch
-            className="block lg:hidden"
+            className="block lg:hidden mt-1"
             categories={categories || []}
           />
         </Suspense>

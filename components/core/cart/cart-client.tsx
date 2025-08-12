@@ -38,7 +38,7 @@ export function CartClient({ className }: CartProps) {
   const CartTrigger = (
     <Button
       aria-label="Open cart"
-      className="relative h-10 w-10 rounded-full"
+      className="relative h-10 w-10 rounded-full bg-muted hover:bg-muted/80"
       size="icon"
       variant="ghost"
       id="cart-icon"

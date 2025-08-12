@@ -62,12 +62,12 @@ const CartItems = () => {
                       <span className="sr-only">Remove item</span>
                     </button>
                   </div>
-                  <ProductPriceCard price={item.price} size="xs" />
+                  <ProductPriceCard price={item.unitPrice} size="xs" />
                 </div>
                 <div className="mt-2 flex items-center justify-between">
                   <ProductCardQuantity item={item} />
                   <div className="text-sm font-medium">
-                    ${(item.price * item.quantity).toFixed(2)}
+                    ${(item.price).toFixed(2)}
                   </div>
                 </div>
               </div>
