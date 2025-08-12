@@ -8,7 +8,7 @@ import { getNoUseRegion } from './lib/middeware/no-use-region-routes';
 
 
 export default async function middleware(request: NextRequest) {
-  const { pathname, searchParams } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
   const locale = await getCookie(ENV_CONFIG.cookies.NEXT_LOCALE) || i18nConfig.defaultLocale
 
@@ -19,20 +19,18 @@ export default async function middleware(request: NextRequest) {
     'hab';
 
   const i18nRedirect = i18nRouter(request, i18nConfig);
-  // Catalog default route
-  const redirectUrl = `${i18nRedirect?.url}/catalog/page`;
-  // Detect if there are query params in the URL
-  const hasQueryParams = Array.from(searchParams.keys()).length > 0;
+
+
 
   // Catalog redirects
   const catalogResponse = catalogRedirects(
     {
       pathname,
-      searchParams,
       i18nRedirect,
-      redirectUrl,
       request,
-      hasQueryParams,
+      region,
+      redirectUrl: `/catalog/page`,
+
     }
   );
 

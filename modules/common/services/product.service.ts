@@ -5,13 +5,11 @@ import { IProduct, PRODUCT_COLLECTION } from '@/interfaces/product.interface';
 import { ISearchParams } from '@/interfaces/search-params';
 
 
-export const allProduct = async (searchParams: ISearchParams): Promise<ApiResponse<IProduct[]>> => {
-  return await ApiServerSide.post(`/api/products`, searchParams, {
-
-
+export const allProduct = async (params: ISearchParams): Promise<ApiResponse<IProduct[]>> => {
+  return await ApiServerSide.post(`/api/products`, params, {
     next: { tags: [PRODUCT_LIST_KEY] },
     headers: {
-      'Accept-Language': searchParams?.locale || 'es'
+      'Accept-Language': params?.locale || 'es'
     }
   });
 };

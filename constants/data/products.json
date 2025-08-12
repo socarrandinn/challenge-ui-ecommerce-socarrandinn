@@ -2,7 +2,7 @@
   "all": [
     {
       "id": "1",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-1.webp",
         "height": 240,
@@ -16,7 +16,7 @@
     },
     {
       "id": "2",
-      "categoría": "1",
+      "category": "2",
       "image": {
         "src": "/images/product/product-2.webp",
         "height": 240,
@@ -29,7 +29,7 @@
     },
     {
       "id": "3",
-      "categoría": "1",
+      "category": "7",
       "image": {
         "src": "/images/product/product-3.webp",
         "height": 240,
@@ -42,7 +42,7 @@
     },
     {
       "id": "4",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-4.webp",
         "height": 240,
@@ -55,7 +55,7 @@
     },
     {
       "id": "5",
-      "categoría": "1",
+      "category": "5",
       "image": {
         "src": "/images/product/product-5.webp",
         "height": 240,
@@ -68,7 +68,7 @@
     },
     {
       "id": "6",
-      "categoría": "1",
+      "category": "6",
       "image": {
         "src": "/images/product/product-6.webp",
         "height": 240,
@@ -81,7 +81,7 @@
     },
     {
       "id": "7",
-      "categoría": "1",
+      "category": "4",
       "image": {
         "src": "/images/product/product-7.webp",
         "height": 240,
@@ -95,7 +95,7 @@
     },
     {
       "id": "8",
-      "categoría": "1",
+      "category": "2",
       "image": {
         "src": "/images/product/product-8.webp",
         "height": 240,
@@ -108,7 +108,7 @@
     },
     {
       "id": "9",
-      "categoría": "1",
+      "category": "2",
       "image": {
         "src": "/images/product/product-9.webp",
         "height": 240,
@@ -121,7 +121,7 @@
     },
     {
       "id": "10",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-10.webp",
         "height": 240,
@@ -134,7 +134,7 @@
     },
     {
       "id": "11",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-11.webp",
         "height": 240,
@@ -147,7 +147,7 @@
     },
     {
       "id": "12",
-      "categoría": "1",
+      "category": "6",
       "image": {
         "src": "/images/product/product-12.webp",
         "height": 240,
@@ -160,7 +160,7 @@
     },
     {
       "id": "13",
-      "categoría": "1",
+      "category": "2",
       "image": {
         "src": "/images/product/product-13.webp",
         "height": 240,
@@ -173,7 +173,7 @@
     },
     {
       "id": "14",
-      "categoría": "1",
+      "category": "7",
       "image": {
         "src": "/images/product/product-14.webp",
         "height": 240,
@@ -186,7 +186,7 @@
     },
     {
       "id": "15",
-      "categoría": "1",
+      "category": "4",
       "image": {
         "src": "/images/product/product-15.webp",
         "height": 240,
@@ -201,7 +201,7 @@
   "recommended": [
     {
       "id": "1",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-1.webp",
         "height": 240,
@@ -214,7 +214,7 @@
     },
     {
       "id": "2",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-2.webp",
         "height": 240,
@@ -226,7 +226,7 @@
     },
     {
       "id": "3",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-3.webp",
         "height": 240,
@@ -238,7 +238,7 @@
     },
     {
       "id": "4",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-4.webp",
         "height": 240,
@@ -250,7 +250,7 @@
     },
     {
       "id": "5",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-5.webp",
         "height": 240,
@@ -262,7 +262,7 @@
     },
     {
       "id": "6",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-6.webp",
         "height": 240,
@@ -274,7 +274,7 @@
     },
     {
       "id": "7",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-7.webp",
         "height": 240,
@@ -287,7 +287,7 @@
     },
     {
       "id": "8",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-8.webp",
         "height": 240,
@@ -299,7 +299,7 @@
     },
     {
       "id": "9",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-9.webp",
         "height": 240,
@@ -311,7 +311,7 @@
     },
     {
       "id": "10",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-10.webp",
         "height": 240,
@@ -326,7 +326,7 @@
   "more-sales": [
     {
       "id": "11",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-11.webp",
         "height": 240,
@@ -338,7 +338,7 @@
     },
     {
       "id": "12",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-12.webp",
         "height": 240,
@@ -350,7 +350,7 @@
     },
     {
       "id": "13",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-13.webp",
         "height": 240,
@@ -362,7 +362,7 @@
     },
     {
       "id": "14",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-14.webp",
         "height": 240,
@@ -374,7 +374,7 @@
     },
     {
       "id": "15",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-15.webp",
         "height": 240,
@@ -386,7 +386,7 @@
     },
     {
       "id": "5",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-5.webp",
         "height": 240,
@@ -398,7 +398,7 @@
     },
     {
       "id": "6",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-6.webp",
         "height": 240,
@@ -410,7 +410,7 @@
     },
     {
       "id": "7",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-7.webp",
         "height": 240,
@@ -422,7 +422,7 @@
     },
     {
       "id": "8",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-8.webp",
         "height": 240,
@@ -434,7 +434,7 @@
     },
     {
       "id": "9",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-9.webp",
         "height": 240,
@@ -446,7 +446,7 @@
     },
     {
       "id": "10",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-10.webp",
         "height": 240,
@@ -461,7 +461,7 @@
   "most-recent": [
     {
       "id": "3",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-3.webp",
         "height": 240,
@@ -473,7 +473,7 @@
     },
     {
       "id": "4",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-4.webp",
         "height": 240,
@@ -485,7 +485,7 @@
     },
     {
       "id": "14",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-14.webp",
         "height": 240,
@@ -497,7 +497,7 @@
     },
     {
       "id": "11",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-11.webp",
         "height": 240,
@@ -509,7 +509,7 @@
     },
     {
       "id": "12",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-12.webp",
         "height": 240,
@@ -521,7 +521,7 @@
     },
     {
       "id": "13",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-13.webp",
         "height": 240,
@@ -533,7 +533,7 @@
     },
     {
       "id": "14",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-14.webp",
         "height": 240,
@@ -545,7 +545,7 @@
     },
     {
       "id": "15",
-      "categoría": "1",
+      "category": "1",
       "image": {
         "src": "/images/product/product-15.webp",
         "height": 240,

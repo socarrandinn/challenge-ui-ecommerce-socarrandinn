@@ -6,17 +6,6 @@ import { BANNER_COLLECTION } from "@/interfaces/banner.interface";
 import { IProduct, PRODUCT_COLLECTION } from "@/interfaces/product.interface";
 
 
-
-// Función para simular tiempo de carga del servidor
-export const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-// Función para simular carga aleatoria del servidor
-export const simulateServerLoad = async (minMs = 200, maxMs = 800) => {
-  const loadTime = Math.floor(Math.random() * (maxMs - minMs)) + minMs;
-  await delay(loadTime);
-};
-
-
 // Función para construir ruta de archivo JSON
 export const buildJsonFilePath = (filename: string) => {
   return path.join(process.cwd(), "constants", 'data', `${filename}.json`);
@@ -40,8 +29,7 @@ export const readJsonFile = (filePath: string) => {
 // Función genérica para manejar respuestas de API
 export const handleApiResponse = async (dataKey: string, filename: string, customErrorMessage: string) => {
   try {
-    // Simular carga del servidor
-    await simulateServerLoad();
+
 
     // Construir ruta del archivo
     const filePath = buildJsonFilePath(filename);
@@ -94,7 +82,7 @@ export const handlePagesResponse = (slug: string) => {
 
 export const handleFilteredProductsResponse = async (filters: any = {}) => {
   try {
-    await simulateServerLoad();
+
 
     // 1. Obtener productos directamente desde el archivo
     const filePath = buildJsonFilePath("products");
@@ -110,12 +98,6 @@ export const handleFilteredProductsResponse = async (filters: any = {}) => {
 
     let filteredProducts = [...allProducts];
 
-    // 2. Aplicar filtros con lógica flexible
-    if (filters.category) {
-      filteredProducts = filteredProducts.filter(product =>
-        product.category?.toLowerCase().includes(filters.category.toLowerCase())
-      );
-    }
 
     if (filters.search) {
       const searchTerm = filters.search.toLowerCase();
@@ -124,6 +106,13 @@ export const handleFilteredProductsResponse = async (filters: any = {}) => {
         (product.description && product.description.toLowerCase().includes(searchTerm))
       );
     }
+
+    if (filters.category) {
+      filteredProducts = filteredProducts.filter(product =>
+        product.category?.includes(filters.category)
+      );
+    }
+
 
     return NextResponse.json(filteredProducts);
   } catch (error) {
@@ -138,7 +127,7 @@ export const handleFilteredProductsResponse = async (filters: any = {}) => {
 
 export const handleFindOneProductResponse = async (productId: string) => {
   try {
-    await simulateServerLoad();
+
     const filePath = buildJsonFilePath("products");
 
     if (!fileExists(filePath)) {

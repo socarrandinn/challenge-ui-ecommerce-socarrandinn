@@ -24,17 +24,21 @@ export async function generateMetadata() {
 const i18nNamespaces = ["common", "errors"];
 
 type Props = {
-  searchParams: any;
-  params: Promise<{ locale: string; region: string }>;
+  params: Promise<{
+    locale: string;
+    region: string;
+    category: string;
+  }>;
 };
 
-export default async function Page({ params, searchParams }: Props) {
-  const query = await searchParams;
-  const { locale, region } = await params;
+export default async function Page({ params }: Props) {
+  const { locale, region, category } = await params;
   const { resources } = await initTranslations(locale, i18nNamespaces);
-  const { data, error } = await allProduct({ ...query, locale, region });
-
-  console.log(data,'DASSSS')
+  const { data, error } = await allProduct({
+    category,
+    locale,
+    region,
+  });
 
   return (
     <TranslationsProvider

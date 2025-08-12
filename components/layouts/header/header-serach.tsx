@@ -9,25 +9,14 @@ import { ICategory } from "@/interfaces/category.interface";
 import CategoryMenu from "@/components/core/menus/category-menu";
 import { SearchIcon } from "@/components/core/icons/search-icon";
 import { useSearch } from "@/hooks/use-search";
-import { useParams } from "next/navigation";
-import { useMemo } from "react";
 
 type Props = ClassNameProps & {
   categories: ICategory[];
 };
 const HeaderSearch = ({ className, categories }: Props) => {
   const { t } = useTranslation("common");
-  const params = useParams();
-  const getParams = useMemo(() => {
-    let _params = {};
-    if (params.category) {
-      _params = params.category;
-    }
 
-    return _params;
-  }, [params.category]);
-
-  const { search, setSearch, onSearch, onClear, setCategory } = useSearch(getParams);
+  const { search, setSearch, onSearch, onClear, setCategory } = useSearch();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);

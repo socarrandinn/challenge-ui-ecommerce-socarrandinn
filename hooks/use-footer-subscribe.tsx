@@ -41,7 +41,6 @@ export const useFooterSubscribe = () => {
     handleSubmit,
     mutate,
     onSubmit: handleSubmit((values) => {
-      console.log(values, "values");
       mutate(values);
     }),
     reset: () => {

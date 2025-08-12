@@ -74,16 +74,18 @@ const HomeContainer = async ({}: Props) => {
       {/* lo que necesitas */}
       <HomeWhatYouNeedContainer />
 
-      {/* product more sale */}
-      <HomeProductContainer
-        products={moreRecent?.slice(0, 9) || []}
-        variant="list_whit_combo"
-        title="home:product.recent"
-        componentCombo={<BannerCombo banner={bannerFour?.[0] as IBanner} />}
-      />
+      <div className="flex flex-col gap-4">
+        {/* product more sale */}
+        <HomeProductContainer
+          products={moreRecent?.slice(0, 9) || []}
+          variant="list_whit_combo"
+          title="home:product.recent"
+          componentCombo={<BannerCombo banner={bannerFour?.[0] as IBanner} />}
+        />
 
-      {/* mini 2 banner */}
-      <HomeBannerMini banners={mini2 || []} />
+        {/* mini 2 banner */}
+        <HomeBannerMini banners={mini2 || []} />
+      </div>
 
       {/* Find everything in one place section */}
       <HomeFindEveryThingInOnePlaceContainer />

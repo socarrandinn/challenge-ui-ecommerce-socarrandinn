@@ -1,49 +1,61 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getRouteParam } from './utils';
 
 type Props = {
   pathname: string,
-  searchParams: URLSearchParams,
   i18nRedirect: any,
   redirectUrl: string,
   request: NextRequest,
-  hasQueryParams: boolean
+  region?: string
 }
 
-export const catalogRedirects = (
-  { hasQueryParams, i18nRedirect, pathname, searchParams, request }: Props
-) => {
-  const category = searchParams?.get('category');
+export const catalogRedirects = ({
+  pathname,
+  i18nRedirect,
+  request,
+  region
+}: Props) => {
 
-  // Redirigir búsquedas con 2 parámetros (incluyendo categoría)
-  if (
-    pathname?.startsWith(`${i18nRedirect?.url}/catalog/search`) &&
-    Array.from(searchParams.keys()).length === 2 &&
-    category
-  ) {
-    return NextResponse.redirect(
-      new URL(`${i18nRedirect?.url}/catalog/category/${category}`, request.url)
-    );
+
+  const baseUrl = region ? `${i18nRedirect?.url}/${region}` : i18nRedirect?.url;
+
+  // Manejo específico para /catalog sin región
+  if (pathname === '/catalog') {
+    return NextResponse.redirect(new URL(`${baseUrl}/catalog/page`, request.url));
   }
 
-  // Redirigir búsquedas con solo categoría
-  if (
-    pathname?.startsWith(`${i18nRedirect?.url}/catalog/search`) &&
-    Array.from(searchParams.keys()).length === 1 &&
-    category
-  ) {
-    return NextResponse.redirect(
-      new URL(`${i18nRedirect?.url}/catalog/category/${category}`, request.url)
-    );
+  // Manejo para rutas que terminan exactamente en /catalog (con cualquier prefijo)
+  if (pathname.endsWith('/catalog')) {
+    return NextResponse.redirect(new URL(`${pathname}/page`, request.url));
   }
 
-  // Redirigir búsquedas sin parámetros
-  if (pathname?.startsWith(`${i18nRedirect?.url}/catalog/search`) && !hasQueryParams) {
-    return NextResponse.redirect(new URL(`${i18nRedirect?.url}/catalog`, request.url));
+  if (pathname?.startsWith(`${i18nRedirect?.url}/catalog/search`)) {
+    const search = getRouteParam(request, 'search', '/catalog/search/[search]');
+    if (search) {
+      return NextResponse.redirect(new URL(`${baseUrl}/catalog/search/${search}`, request.url));
+    }
+    return NextResponse.redirect(new URL(`${baseUrl}/catalog/page`, request.url));
   }
 
-  // Redirigir rutas con parámetros en URLs de paginación
-  if (hasQueryParams && pathname.startsWith('/catalog/') && pathname.includes('/page/')) {
-    const searchPath = `${i18nRedirect?.url}/catalog/search?${searchParams.toString()}`;
-    return NextResponse.redirect(new URL(searchPath, request.url));
+  if (pathname?.startsWith(`${i18nRedirect?.url}/catalog/category`)) {
+    const category = getRouteParam(request, 'category', '/catalog/category/[category]');
+    const categoryLarge = getRouteParam(request, 'category', '/catalog/category/[category]/search/[search]');
+    const search = getRouteParam(request, 'search', '/catalog/category/[category]/search/[search]');
+
+    if (!category && !search) {
+      return NextResponse.redirect(
+        new URL(`${baseUrl}/catalog/page`, request.url)
+      );
+    }
+    if (category && !search) {
+      return NextResponse.redirect(
+        new URL(`${baseUrl}/catalog/category/${category}`, request.url)
+      );
+    }
+    if (categoryLarge && search) {
+      return NextResponse.redirect(
+        new URL(`${baseUrl}/catalog/category/${categoryLarge}/search/${search}`, request.url)
+      );
+    }
   }
 };

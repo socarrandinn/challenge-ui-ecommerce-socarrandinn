@@ -10,5 +10,6 @@ export async function POST(req: NextRequest) {
     category: body?.category
   }
 
+
   return handleFilteredProductsResponse(filters);
 }
