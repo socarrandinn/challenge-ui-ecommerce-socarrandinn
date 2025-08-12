@@ -12,6 +12,10 @@ interface MetallicBannerProps {
   className?: string;
   openInNewTab?: boolean;
   unoptimized?: boolean;
+  // ✅ NUEVO: Prop para indicar si es imagen LCP
+  priority?: boolean;
+  // ✅ NUEVO: Prop para fetchPriority
+  fetchPriority?: "high" | "low" | "auto";
 }
 
 const MetallicBanner: React.FC<MetallicBannerProps> = ({
@@ -22,12 +26,18 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
   className = "",
   openInNewTab = false,
   unoptimized = false,
+  // ✅ Por defecto asume que NO es LCP (lazy loading)
+  priority = false,
+  fetchPriority = "auto",
 }) => {
   const handleClick = () => {
     if (!href) {
       onClick();
     }
   };
+
+  // ✅ Determinar si debe usar lazy loading
+  const shouldUseLazyLoading = !priority;
 
   const bannerContent = (
     <div
@@ -40,7 +50,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
     >
       {/* Imagen de fondo responsive */}
       <div className="relative w-full h-full">
-        {/* Image desktop */}
+        {/* ✅ Image desktop optimizada */}
         <Image
           src={imagen?.desktop?.src}
           alt={alt}
@@ -49,9 +59,16 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           className="object-contain w-full h-full transition-all duration-700 hidden md:block"
           unoptimized={unoptimized}
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
+          placeholder="blur"
+          blurDataURL="/images/no-image.webp"
+          // ✅ CORREGIDO: Condicional para loading
+          {...(shouldUseLazyLoading ? { loading: "lazy" } : {})}
+          // ✅ AGREGADO: Priority y fetchPriority
+          priority={priority}
+          {...(fetchPriority !== "auto" ? { fetchPriority } : {})}
         />
 
-        {/* Image mobile */}
+        {/* ✅ Image mobile optimizada */}
         <Image
           src={imagen?.mobile?.src}
           alt={alt}
@@ -60,6 +77,13 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           className="object-contain w-full h-full transition-all duration-700 block md:hidden"
           unoptimized={unoptimized}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          placeholder="blur"
+          blurDataURL="/images/no-image.webp"
+          // ✅ CORREGIDO: Condicional para loading
+          {...(shouldUseLazyLoading ? { loading: "lazy" } : {})}
+          // ✅ AGREGADO: Priority y fetchPriority
+          priority={priority}
+          {...(fetchPriority !== "auto" ? { fetchPriority } : {})}
         />
 
         {/* Overlay con gradiente metálico */}
@@ -102,4 +126,5 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
   return bannerContent;
 };
 
-export default MetallicBanner;
+
+export default MetallicBanner
