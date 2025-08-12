@@ -90,29 +90,42 @@ export const handlePagesResponse = (slug: string) => {
 };
 
 // Función para productos con filtros
+// ... imports y funciones existentes ...
+
 export const handleFilteredProductsResponse = async (filters: any = {}) => {
   try {
     await simulateServerLoad();
 
+    // 1. Obtener productos directamente desde el archivo
     const filePath = buildJsonFilePath("products");
-
     if (!fileExists(filePath)) {
       return NextResponse.json(
-        { error: "Idioma no soportado" },
+        { error: "Archivo de productos no encontrado" },
         { status: 404 }
       );
     }
 
     const data = readJsonFile(filePath);
-    let products = data.all || data;
+    const allProducts = data.all || [];
 
-    // Aplicar filtros
+    let filteredProducts = [...allProducts];
+
+    // 2. Aplicar filtros con lógica flexible
     if (filters.category) {
-      products = products.filter((product: IProduct) =>
-        product.category?.toLowerCase() === filters.category.toLowerCase()
+      filteredProducts = filteredProducts.filter(product =>
+        product.category?.toLowerCase().includes(filters.category.toLowerCase())
       );
     }
-    return NextResponse.json(products);
+
+    if (filters.search) {
+      const searchTerm = filters.search.toLowerCase();
+      filteredProducts = filteredProducts.filter(product =>
+        product.name.toLowerCase().includes(searchTerm) ||
+        (product.description && product.description.toLowerCase().includes(searchTerm))
+      );
+    }
+
+    return NextResponse.json(filteredProducts);
   } catch (error) {
     console.error("Error al obtener productos filtrados:", error);
     return NextResponse.json(

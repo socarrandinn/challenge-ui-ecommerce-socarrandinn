@@ -12,6 +12,10 @@ import MainProvider from "@/providers/main.provider";
 export const metadata: Metadata = {
   title: "Ecommerce App",
   description: "Ecommerce App",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export function generateStaticParams() {

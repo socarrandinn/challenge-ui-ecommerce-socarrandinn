@@ -2,7 +2,7 @@ import { TProps } from "@/interfaces/common.types";
 import { allBannerService } from "../../common/services/banner.service";
 import { BANNER_COLLECTION, IBanner } from "@/interfaces/banner.interface";
 import HomeHeroContainer from "./home-hero.container";
-import { allCategoryService } from "@/modules/common/services/category.service";
+import { allCategory } from "@/modules/common/services/category.service";
 import HomeCategoryContainer from "./home-category-container";
 import HomeProductContainer from "./home-product-container";
 import { getProductsByPosition } from "../../common/services/product.service";
@@ -31,7 +31,7 @@ const HomeContainer = async ({}: Props) => {
   const { data: mini1 } = await allBannerService(BANNER_COLLECTION.MINI_1);
   const { data: mini2 } = await allBannerService(BANNER_COLLECTION.MINI_2);
 
-  const { data: categories } = await allCategoryService();
+  const { data: categories } = await allCategory();
   const { data: recommended } = await getProductsByPosition(
     PRODUCT_COLLECTION.RECOMMENDED
   );

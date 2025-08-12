@@ -2,7 +2,6 @@ import { ISearchParams } from "@/interfaces/search-params";
 import { create } from "zustand";
 
 export type FilterProps = ISearchParams & {
-  priceRange?: [string, string] | undefined;
   clearFilter?: boolean;
   scrollPosition?: number;
 };

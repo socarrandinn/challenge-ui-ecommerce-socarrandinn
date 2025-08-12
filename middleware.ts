@@ -20,7 +20,7 @@ export default async function middleware(request: NextRequest) {
 
   const i18nRedirect = i18nRouter(request, i18nConfig);
   // Catalog default route
-  const redirectUrl = `${i18nRedirect?.url}/catalog`;
+  const redirectUrl = `${i18nRedirect?.url}/catalog/page`;
   // Detect if there are query params in the URL
   const hasQueryParams = Array.from(searchParams.keys()).length > 0;
 

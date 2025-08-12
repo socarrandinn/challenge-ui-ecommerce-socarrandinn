@@ -2,10 +2,7 @@
 import { useCallback, useEffect, useMemo } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { ISearchParams } from "@/interfaces/search-params";
-import {
-  FilterProps,
-  useFiltersStore,
-} from "@/providers/stores/use-filters-store";
+import { useFiltersStore } from "@/providers/stores/use-filters-store";
 
 // Hook para manejar el router
 export const useHandleRouter = (defaultPath: string) => {
@@ -101,17 +98,16 @@ export const useCategoryBySlug = (categories: any[], slug?: string) => {
 export const useNavigationBuilder = () => {
   const buildSearchUrl = useCallback((search: string, category?: string) => {
     const params = new URLSearchParams();
-    params.set("search", search);
     if (category) params.set("category", category);
-    return `/product/search?${params.toString()}`;
+    return `/catalog/search?${params.toString()}`;
   }, []);
 
-  const buildCategoryUrl = useCallback((category: string, page = 1) => {
-    return `/product/category/${category}/page/${page}`;
+  const buildCategoryUrl = useCallback((category: string) => {
+    return `/catalog/category/${category}`;
   }, []);
 
-  const buildProductsUrl = useCallback((page = 1) => {
-    return `/product/page/${page}`;
+  const buildProductsUrl = useCallback(() => {
+    return `/catalog/page`;
   }, []);
 
   return {
@@ -121,38 +117,19 @@ export const useNavigationBuilder = () => {
   };
 };
 
-// Función utilitaria para remover campos vacíos
-function removeEmptyFields(obj: Record<string, any>): FilterProps {
-  const cleaned: Record<string, any> = {};
-
-  Object.entries(obj).forEach(([key, value]) => {
-    if (value !== undefined && value !== null && value !== "") {
-      cleaned[key] = value;
-    }
-  });
-
-  return cleaned as FilterProps;
-}
-
-export function useParseQueryParamsToProps(): FilterProps {
-  const searchParams = useSearchParams();
-  return removeEmptyFields(Object.fromEntries(searchParams.entries()));
-}
-
 // Hook principal convertido a Zustand
 export const useSearch = (searchParams?: ISearchParams, path?: string) => {
   const { push } = useRouter();
   const pathname = usePathname();
 
   const { updateRoute, removeQueryParam } = useHandleRouter(
-    path || "/product/search"
+    path || "/catalog/search"
   );
 
   // Usar Zustand store en lugar del reducer
   const {
     search,
     category,
-    priceRange,
     state,
     clearFilter,
     setState,
@@ -191,7 +168,7 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
     const hasCategory = Boolean(category);
 
     if (hasSearch && hasCategory) {
-      if (pathname?.startsWith("/product/search")) {
+      if (pathname?.startsWith("/catalog/search")) {
         updateRoute({
           ...searchParams,
           search: search,
@@ -203,7 +180,7 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
     } else if (hasCategory && !hasSearch) {
       push(buildCategoryUrl(category!));
     } else if (hasSearch && !hasCategory) {
-      if (pathname?.startsWith("/product/search")) {
+      if (pathname?.startsWith("/catalog/search")) {
         updateRoute({
           ...searchParams,
           search: search,
@@ -260,7 +237,6 @@ export const useSearch = (searchParams?: ISearchParams, path?: string) => {
     // Estados individuales (acceso directo)
     search,
     category,
-    priceRange,
     clearFilter,
 
     // Estados derivados

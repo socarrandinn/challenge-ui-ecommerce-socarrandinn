@@ -16,7 +16,7 @@ import HeaderSearch from "./header-serach";
 import UserMenu from "@/components/core/user-menu/user-menu";
 import { Menu } from "lucide-react";
 import HeaderMobileNavbar from "./header-mobile-navbar";
-import { allCategoryService } from "@/modules/common/services/category.service";
+import { allCategory } from "@/modules/common/services/category.service";
 import LanguageChanger from "@/components/core/language-changer/language-changer";
 import HeaderNavbar from "./header-navbar";
 import StateButton from "@/components/core/state-button/state-button";
@@ -30,7 +30,7 @@ type HeaderProps = ChildrenProps & {
 };
 
 export const Header = async ({ locale }: HeaderProps) => {
-  const { data: categories } = await allCategoryService();
+  const { data: categories } = await allCategory();
   const regionCookie = await getCookie(ENV_CONFIG.cookies.X_REGION);
 
   const renderContent = () => (

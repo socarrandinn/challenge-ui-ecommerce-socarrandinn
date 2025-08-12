@@ -44,10 +44,10 @@ export const getOneProductMetadata = ({ locale, product, slug }: Props): Metadat
       },
     },
     alternates: {
-      canonical: `/catalog/${slug}`,
+      canonical: `/catalog/page/${slug}`,
       languages: {
-        "es-ES": `/es/catalog/${slug}`,
-        "en-US": `/en/catalog/${slug}`,
+        "es-ES": `/es/catalog/page/${slug}`,
+        "en-US": `/en/catalog/page/${slug}`,
       },
     },
 

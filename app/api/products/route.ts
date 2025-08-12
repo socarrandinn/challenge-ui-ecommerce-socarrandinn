@@ -1,7 +1,14 @@
 
-import { handleProductsResponse } from "@/lib/api-helpers";
+import { handleFilteredProductsResponse } from "@/lib/api-helpers";
+import { NextRequest } from "next/server";
 
-export async function GET() {
+export async function POST(req: NextRequest) {
+  const body = await req.json();
 
-  return handleProductsResponse();
+  const filters = {
+    search: body?.search,
+    category: body?.category
+  }
+
+  return handleFilteredProductsResponse(filters);
 }

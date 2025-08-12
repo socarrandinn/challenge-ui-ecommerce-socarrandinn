@@ -3,7 +3,7 @@ import { ICategory } from "@/interfaces/category.interface";
 import { IProduct } from "@/interfaces/product.interface";
 import { getOneProductMetadata } from "@/lib/metadata/product.metadata";
 import {
-  allCategoryService,
+  allCategory,
   findOneCategory,
 } from "@/modules/common/services/category.service";
 import { findOneProduct } from "@/modules/common/services/product.service";
@@ -45,7 +45,7 @@ export default async function Home({ params }: Props) {
   const { resources } = await initTranslations(locale, i18nNamespaces);
   const { slug } = await params;
   const { data: product } = await findOneProduct(slug);
-  const { data: categories } = await allCategoryService();
+  const { data: categories } = await allCategory();
 
   const category = findOneCategory(categories, product?.id as string);
 

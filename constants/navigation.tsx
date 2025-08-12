@@ -8,8 +8,8 @@ import {
 } from "lucide-react";
 
 export const CATALOG_MENU = {
-  list: "/catalog",
-  path: (path: string) => `/catalog/${path}`,
+  list: "/catalog/page",
+  path: (path: string) => `/catalog/page/${path}`,
 };
 
 export const NAVBAR: IMenuItem[] = [

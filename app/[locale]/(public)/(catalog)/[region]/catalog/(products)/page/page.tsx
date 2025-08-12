@@ -28,7 +28,7 @@ const i18nNamespaces = ["home", "common", "errors"];
 export default async function Home({ params }: Props) {
   const { locale } = await params;
   const { resources } = await initTranslations(locale, i18nNamespaces);
-  const { data } = await allProduct();
+  const { data } = await allProduct({});
 
   return (
     <div className="w-full">
