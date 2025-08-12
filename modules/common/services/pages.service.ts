@@ -10,3 +10,4 @@ export const findOnePage = async (slug: string, config?: any): Promise<ApiRespon
     next: { ...config, tags: [PAGE_ONE_KEY] },
   });
 };
+

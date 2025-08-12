@@ -9,6 +9,7 @@ export const allCategory = async (config?: any): Promise<ApiResponse<ICategory[]
   }, config);
 };
 
+
 export const findOneCategory = (
   categories: ICategory[] | null | undefined,
   id: string,
@@ -18,8 +19,6 @@ export const findOneCategory = (
     if (category.id === id) {
       return category;
     }
-
-
   }
 
   return null;

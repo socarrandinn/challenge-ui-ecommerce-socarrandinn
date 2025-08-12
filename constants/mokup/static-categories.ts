@@ -1,0 +1,42 @@
+export const staticCategories = [
+  {
+    "id": "1",
+    "name": "Vitaminas",
+    "icon": "vitamins-icon"
+  },
+  {
+    "id": "2",
+    "name": "Analgésicos y antiinflamatorios",
+    "icon": "analgesics-antiinflammatories-icon"
+  },
+  {
+    "id": "3",
+    "name": "Antiinfecciosos",
+    "icon": "anti-infectives-icon"
+  },
+  {
+    "id": "4",
+    "name": "Mucolíticos y antitusivos",
+    "icon": "mucolytics-antitussives-icon"
+  },
+  {
+    "id": "5",
+    "name": "Antiulcerosos y antiácidos",
+    "icon": "antiulcer-drugs-antacids-icon"
+  },
+  {
+    "id": "6",
+    "name": "Antidiarreicos y laxantes",
+    "icon": "antidiarrheals-laxatives-icon"
+  },
+  {
+    "id": "7",
+    "name": "Antipiréticos",
+    "icon": "antipyretics-icon"
+  },
+  {
+    "id": "8",
+    "name": "Antialérgicos",
+    "icon": "antiallergics-icon"
+  }
+]

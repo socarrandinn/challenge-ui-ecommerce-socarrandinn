@@ -2,15 +2,28 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { findOnePage } from "@/modules/common/services/pages.service";
 import CmsContainer from "@/components/layouts/cms-container";
+import { IPages } from "@/interfaces/page.interface";
+import { searchStaticPagesService } from "@/modules/common/services/static-data.service";
 
 export const revalidate = 60;
 export const dynamicParams = true;
 
-// const PAGES = ["about-us", "payment", "delivery", "faq"];
-
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
 };
+
+export async function generateStaticParams(params: any) {
+  const { data } = await searchStaticPagesService();
+
+  if (!data?.length) {
+    return [];
+  }
+
+  return data?.map((pages: IPages) => ({
+    slug: String(pages?.slug),
+    region: params?.region || process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
+  }));
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
