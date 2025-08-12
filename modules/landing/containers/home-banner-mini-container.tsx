@@ -17,6 +17,7 @@ const HomeBannerMini = ({ banners }: Props) => {
             className="rounded-none"
             imagen={banner?.imagen}
             alt={banner?.text}
+            unoptimized
           />
         </picture>
       ))}

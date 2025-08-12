@@ -11,6 +11,7 @@ interface MetallicBannerProps {
   onClick?: () => void;
   className?: string;
   openInNewTab?: boolean;
+  unoptimized?: boolean;
 }
 
 const MetallicBanner: React.FC<MetallicBannerProps> = ({
@@ -20,6 +21,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
   onClick = () => console.log("Banner clicked"),
   className = "",
   openInNewTab = false,
+  unoptimized = false,
 }) => {
   const handleClick = () => {
     if (!href) {
@@ -45,8 +47,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           width={imagen?.desktop?.width}
           height={imagen?.desktop?.height}
           className="object-contain w-full h-full transition-all duration-700 hidden md:block"
-          unoptimized={true}
-          priority
+          unoptimized={unoptimized}
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
         />
 
@@ -57,8 +58,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           width={imagen?.mobile?.width}
           height={imagen?.mobile?.height}
           className="object-contain w-full h-full transition-all duration-700 block md:hidden"
-          unoptimized={true}
-          priority
+          unoptimized={unoptimized}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
 
