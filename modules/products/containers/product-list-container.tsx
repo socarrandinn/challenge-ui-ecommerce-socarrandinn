@@ -2,12 +2,20 @@ import ProductCard from "@/components/core/product-card/product-card";
 import TransTypography from "@/components/core/trans-typography/trans-typography";
 import Container from "@/components/layouts/container";
 import { IProduct } from "@/interfaces/product.interface";
+import ProductListEntity from "../components/product-list-entity/product-list-entity";
 
 type Props = {
   products: IProduct[];
   error?: any;
 };
 const ProductListContainer = ({ products }: Props) => {
+  if (products?.length === 0)
+    return (
+      <Container>
+        <ProductListEntity />
+      </Container>
+    );
+
   return (
     <Container>
       <section className="flex flex-col gap-4 md:gap-6 mt-2 md:mt-4 mb-4">

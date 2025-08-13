@@ -7,7 +7,7 @@
   "send": "Send",
   "loading": "Loading...",
   "product-catalog": "Product catalog",
-  "addToCart": "Add to Cart",
+  "add-to-cart": "Add to Cart",
   "product": {
     "new": "New"
   },
@@ -51,5 +51,9 @@
         "subtitle": "info@example.com"
       }
     }
+  },
+  "product-entity": {
+    "title": "Products not found for your search",
+    "subtitle": "You can try to search again or follow the navigation on the page."
   }
 }

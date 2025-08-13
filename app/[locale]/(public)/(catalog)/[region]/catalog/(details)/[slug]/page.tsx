@@ -11,7 +11,6 @@ import ProductDetail from "@/modules/products/containers/product-details-contain
 import TranslationsProvider from "@/providers/translation-provider";
 import { Metadata } from "next";
 
-
 export const revalidate = 60;
 export const dynamicParams = true;
 

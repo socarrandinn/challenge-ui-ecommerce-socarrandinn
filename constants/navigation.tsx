@@ -9,7 +9,7 @@ import {
 
 export const CATALOG_MENU = {
   list: "/catalog/page",
-  path: (path: string) => `/catalog/page/${path}`,
+  path: (path: string) => `/catalog/${path}`,
 };
 
 export const NAVBAR: IMenuItem[] = [

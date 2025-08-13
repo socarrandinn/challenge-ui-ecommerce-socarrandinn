@@ -7,7 +7,7 @@
   "send": "Enviar",
   "loading": "Cargando...",
   "product-catalog": "Catalogo de productos",
-  "addToCart": "Agregar al Carrito",
+  "add-to-cart": "Agregar al Carrito",
 
   "product": {
     "new": "Nuevo"
@@ -56,5 +56,10 @@
         "subtitle": "info@example.com"
       }
     }
+  },
+
+  "product-entity": {
+    "title": "Productos no encontrados para tu búsqueda",
+    "subtitle": "Puedes intentar buscar de nuevo o seguir la navegación de la página"
   }
 }

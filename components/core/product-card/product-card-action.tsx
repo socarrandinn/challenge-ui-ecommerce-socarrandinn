@@ -1,17 +1,26 @@
 "use client";
 import ProductCardQuantity from "./product-card-quantity";
-import ProductCartIcon from "./product-cart-button";
 import { IProduct } from "@/interfaces/product.interface";
 import { useState } from "react";
+import { ProductCartButton } from "./product-cart-button";
+import { cn } from "@/lib/utils";
+import { ClassNameProps } from "@/interfaces/common.types";
 
-type Props = {
+type Props = ClassNameProps & {
   product: IProduct;
+  variant: "icon" | "button";
+  title?: string;
 };
 
-const ProductCartAction = ({ product }: Props) => {
+const ProductCartAction = ({ product, variant, title, className }: Props) => {
   const [quantity, setQuantity] = useState<number>(1);
   return (
-    <div className="flex flex-row gap-1 justify-between items-center mt-1">
+    <div
+      className={cn(
+        "flex flex-row gap-1 justify-between items-center mt-1",
+        className
+      )}
+    >
       <ProductCardQuantity
         setQuantity={setQuantity}
         quantity={quantity}
@@ -24,7 +33,12 @@ const ProductCartAction = ({ product }: Props) => {
           unitPrice: 0,
         }}
       />
-      <ProductCartIcon product={product} quantity={quantity} />
+      <ProductCartButton
+        variant={variant}
+        product={product}
+        quantity={quantity}
+        title={title}
+      />
     </div>
   );
 };

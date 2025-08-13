@@ -1,5 +1,6 @@
 import { IProduct } from "@/interfaces/product.interface";
 import { Metadata } from "next";
+import { ENV_CONFIG } from "../config/env.config";
 
 type Props = {
   locale: string,
@@ -15,11 +16,10 @@ export const getOneProductMetadata = ({ locale, product, slug }: Props): Metadat
     openGraph: {
       title: product?.name ?? '',
       description: product?.description ?? '',
-      url: `/catalog/${slug}`,
-      siteName: "E-COMMERCE",
+      url: `${ENV_CONFIG.env.NEXT_PUBLIC_APP_URL}/catalog/${slug}`,
       images: [
         {
-          url: product?.image?.src ?? "/images/no-image.webp",
+          url: product?.image?.src ?? "opengraph-image.png",
           width: product?.image?.width || 1200,
           height: product?.image?.height || 630,
           alt: `Imagen de ${product?.name}`,
@@ -36,31 +36,9 @@ export const getOneProductMetadata = ({ locale, product, slug }: Props): Metadat
       card: "summary_large_image",
       title: product?.name,
       description: product?.description,
-      site: "e-commerce",
-      creator: "@soccarandinn",
       images: {
         url: product?.image.src,
         alt: `Imagen de ${product?.name}`,
-      },
-    },
-    alternates: {
-      canonical: `/catalog/page/${slug}`,
-      languages: {
-        "es-ES": `/es/catalog/page/${slug}`,
-        "en-US": `/en/catalog/page/${slug}`,
-      },
-    },
-
-    // Robots específicos para esta página
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-video-preview": -1,
-        "max-image-preview": "large",
-        "max-snippet": -1,
       },
     },
   };

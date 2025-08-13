@@ -1,10 +1,11 @@
 import initTranslations from "@/app/i18n";
 import { ICategory } from "@/interfaces/category.interface";
-import { generateOgMetadata } from "@/lib/og-image";
+import { getOneCategoryMetadata } from "@/lib/metadata/category.metadata";
 import { allProduct } from "@/modules/common/services/product.service";
 import { searchStaticCategoriesService } from "@/modules/common/services/static-data.service";
 import ProductListContainer from "@/modules/products/containers/product-list-container";
 import TranslationsProvider from "@/providers/translation-provider";
+import { Metadata } from "next";
 
 export const revalidate = 0;
 export const dynamic = "force-dynamic";
@@ -17,52 +18,27 @@ type Props = {
   }>;
 };
 
-export async function generateStaticParams() {
-  try {
-    const { data: categories } = await searchStaticCategoriesService();
-    const paths: Array<{ category: string; region: string }> = [];
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { category, locale } = await params;
+  const { data: categories, error } = await searchStaticCategoriesService();
 
-    const popularCategories = categories?.data?.slice(0, 10) || [];
+  const categoryObj = categories?.data?.find(
+    (c: ICategory) => c.id === category
+  );
 
-    popularCategories?.forEach((category: ICategory) => {
-      paths.push({
-        region: process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
-        category: category.id,
-      });
-    });
-
-    return paths;
-  } catch (error) {
-    console.warn("Error generating static params:", error);
-    return [
-      {
-        region: process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
-        category: "1",
-      },
-    ];
-  }
-}
-export async function generateMetadata({ params }: Props) {
-  try {
-    const { category } = await params;
-
-    return await generateOgMetadata({
-      title: `Categoría ${category} - Productos`,
-      description: `Explora productos en la categoría ${category} | ${process.env.NEXT_PUBLIC_STORE_NAME}`,
-      ogImageParams: {
-        type: "catalog",
-        title: `Categoría ${category}`,
-        subtitle: `Productos | ${process.env.NEXT_PUBLIC_STORE_NAME}`,
-        image: `${process.env.NEXT_PUBLIC_APP_URL}/images/og-graph.png`,
-      },
-    });
-  } catch (error) {
-    console.warn("Error generating metadata:", error);
+  if (!categoryObj || error)
     return {
-      title: "Productos",
-      description: `Productos | ${process.env.NEXT_PUBLIC_STORE_NAME}`,
+      title: "Page Not Found",
+      description: "The requested page could not be found.",
     };
-  }
+
+  const metadata = getOneCategoryMetadata({
+    category: categoryObj as ICategory,
+    slug: category,
+    locale,
+  });
+
+  return metadata;
 }
 
 const i18nNamespaces = ["common", "errors"];

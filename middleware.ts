@@ -49,7 +49,7 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
-  // If it's a regionalizad route and the region is not in the URL, add the region
+
   if (!noNeedRegionRoute && !pathname.includes(`/${region}`)) {
     const newPathname = `/${region}${pathname}`;
     const url = request.nextUrl.clone();

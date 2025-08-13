@@ -88,7 +88,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
         </Link>
 
         {/* Quantity and Add to Cart */}
-        <ProductCartAction product={product} />
+        <ProductCartAction product={product} variant="icon" />
       </CardContent>
     </Card>
   );

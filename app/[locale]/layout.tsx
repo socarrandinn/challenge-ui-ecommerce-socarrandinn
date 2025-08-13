@@ -10,8 +10,8 @@ import { fontVariables } from "@/lib/config/fonts";
 import MainProvider from "@/providers/main.provider";
 
 export const metadata: Metadata = {
-  title: "Ecommerce App",
-  description: "Ecommerce App",
+  title: "Ecommerce",
+  description: "Himenaeos eget suscipit blandit vitae porta odio fermentum habitant ligula quisque montes",
   robots: {
     index: false,
     follow: false,
