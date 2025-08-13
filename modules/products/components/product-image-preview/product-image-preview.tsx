@@ -59,6 +59,9 @@ const ProductImagePreview = ({ product }: Props) => {
             src={product?.image?.src || "/placeholder.svg?height=400&width=400"}
             alt="Producto principal"
             fill
+            placeholder="blur"
+            blurDataURL={product?.image?.thumb}
+            loading="lazy"
             className={`object-cover transition-transform duration-300 ${
               isZoomed ? "scale-150" : "scale-100"
             }`}
@@ -122,6 +125,8 @@ const ProductImagePreview = ({ product }: Props) => {
               width={80}
               height={80}
               className="object-cover w-full h-full"
+              placeholder="blur"
+              blurDataURL={product?.image?.thumb}
             />
           </button>
         ))}

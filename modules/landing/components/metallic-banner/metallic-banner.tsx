@@ -12,10 +12,6 @@ interface MetallicBannerProps {
   className?: string;
   openInNewTab?: boolean;
   unoptimized?: boolean;
-  // ✅ NUEVO: Prop para indicar si es imagen LCP
-  priority?: boolean;
-  // ✅ NUEVO: Prop para fetchPriority
-  fetchPriority?: "high" | "low" | "auto";
 }
 
 const MetallicBanner: React.FC<MetallicBannerProps> = ({
@@ -24,20 +20,12 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
   href,
   onClick = () => console.log("Banner clicked"),
   className = "",
-  openInNewTab = false,
-  unoptimized = false,
-  // ✅ Por defecto asume que NO es LCP (lazy loading)
-  priority = false,
-  fetchPriority = "auto",
 }) => {
   const handleClick = () => {
     if (!href) {
       onClick();
     }
   };
-
-  // ✅ Determinar si debe usar lazy loading
-  const shouldUseLazyLoading = !priority;
 
   const bannerContent = (
     <div
@@ -50,40 +38,32 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
     >
       {/* Imagen de fondo responsive */}
       <div className="relative w-full h-full">
-        {/* ✅ Image desktop optimizada */}
+        {/* Image desktop */}
         <Image
           src={imagen?.desktop?.src}
           alt={alt}
           width={imagen?.desktop?.width}
           height={imagen?.desktop?.height}
-          className="object-contain w-full h-full transition-all duration-700 hidden md:block"
-          unoptimized={unoptimized}
+          className="object-contain w-full h-full transition-all duration-700 md:block hidden"
+          unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
-          placeholder="blur"
-          blurDataURL="/images/no-image.webp"
-          // ✅ CORREGIDO: Condicional para loading
-          {...(shouldUseLazyLoading ? { loading: "lazy" } : {})}
-          // ✅ AGREGADO: Priority y fetchPriority
-          priority={priority}
-          {...(fetchPriority !== "auto" ? { fetchPriority } : {})}
+          placeholder={"blur"}
+          blurDataURL={imagen?.desktop?.thumb || "/images/no-images.webp"}
+          loading="lazy"
         />
 
-        {/* ✅ Image mobile optimizada */}
+        {/* Image mobile */}
         <Image
           src={imagen?.mobile?.src}
           alt={alt}
           width={imagen?.mobile?.width}
           height={imagen?.mobile?.height}
-          className="object-contain w-full h-full transition-all duration-700 block md:hidden"
-          unoptimized={unoptimized}
+          className="object-contain w-full h-full transition-all duration-700 block md:hidden aspect-auto"
+          unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          placeholder="blur"
-          blurDataURL="/images/no-image.webp"
-          // ✅ CORREGIDO: Condicional para loading
-          {...(shouldUseLazyLoading ? { loading: "lazy" } : {})}
-          // ✅ AGREGADO: Priority y fetchPriority
-          priority={priority}
-          {...(fetchPriority !== "auto" ? { fetchPriority } : {})}
+          placeholder={"blur"}
+          blurDataURL={imagen?.mobile?.thumb || "/images/no-images.webp"}
+          loading="lazy"
         />
 
         {/* Overlay con gradiente metálico */}
@@ -109,15 +89,9 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
     </div>
   );
 
-  // Si hay href, envolver con Link de Next.js
   if (href) {
     return (
-      <Link
-        href={href}
-        target={openInNewTab ? "_blank" : undefined}
-        rel={openInNewTab ? "noopener noreferrer" : undefined}
-        className="block"
-      >
+      <Link href={href} className="block">
         {bannerContent}
       </Link>
     );
@@ -126,5 +100,4 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
   return bannerContent;
 };
 
-
-export default MetallicBanner
+export default MetallicBanner;

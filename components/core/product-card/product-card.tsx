@@ -58,6 +58,9 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
               imageClassName
             )}
             priority={false}
+            placeholder="blur"
+            blurDataURL={product?.image?.thumb || "/images/no-images.webp"}
+            loading="lazy"
           />
         </Link>
       </CardHeader>

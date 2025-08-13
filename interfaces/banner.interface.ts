@@ -1,5 +1,6 @@
 export interface IImageMedia {
   src: string
+  thumb: string
   height: number
   width: number
 }
