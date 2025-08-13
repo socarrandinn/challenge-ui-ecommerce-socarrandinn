@@ -1,15 +1,16 @@
 import { ENV_CONFIG } from "@/lib/config/env.config";
-import { MetadataRoute } from "next";
 
-export default function robots(): MetadataRoute.Robots {
+const baseUrl = ENV_CONFIG.env.NEXT_PUBLIC_APP_URL
+
+export default function robots() {
   return {
     rules: [
       {
-        userAgent: "*",
-        allow: "/",
-        // disallow: [],
-      },
+        userAgent: '*',
+        allow: '/',
+      }
     ],
-    sitemap: `${ENV_CONFIG.env.NEXT_PUBLIC_APP_URL}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl
   };
 }

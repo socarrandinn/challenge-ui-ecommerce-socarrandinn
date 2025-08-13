@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next';
-// import { CDN_PATH } from '@/config/cdn-path.config';
 
 const nextConfig: NextConfig = {
   compress: true,
