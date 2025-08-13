@@ -3,6 +3,8 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   compress: true,
 
+  robots: process.env.NODE_ENV === 'production' ? 'index, follow' : 'noindex, nofollow',
+
   // Optimización de imágenes
   images: {
     formats: ['image/webp', 'image/avif'],
