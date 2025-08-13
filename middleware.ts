@@ -1,11 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import i18nConfig from './i18nConfig';
-import { i18nRouter } from 'next-i18n-router';
 import { ENV_CONFIG } from './lib/config/env.config';
 import { getCookie } from './app/actions/cookies';
 import { catalogRedirects } from './lib/middeware/catalog-redirects';
 import { getNoUseRegion } from './lib/middeware/no-use-region-routes';
-
+import { i18nRouter } from 'next-i18n-router';
 
 export default async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
