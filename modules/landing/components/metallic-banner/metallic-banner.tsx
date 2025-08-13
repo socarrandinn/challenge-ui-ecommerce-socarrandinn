@@ -50,6 +50,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           placeholder={"blur"}
           blurDataURL={imagen?.desktop?.thumb || "/images/no-images.webp"}
           loading="lazy"
+          priority
         />
 
         {/* Image mobile */}
@@ -64,6 +65,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           placeholder={"blur"}
           blurDataURL={imagen?.mobile?.thumb || "/images/no-images.webp"}
           loading="lazy"
+          priority
         />
 
         {/* Overlay con gradiente metálico */}
