@@ -8,24 +8,41 @@ import NextTopLoader from "nextjs-toploader";
 import { cn } from "@/lib/utils";
 import { fontVariables } from "@/lib/config/fonts";
 import MainProvider from "@/providers/main.provider";
-
-export const metadata: Metadata = {
-  title: "Ecommerce",
-  description: "Himenaeos eget suscipit blandit vitae porta odio fermentum habitant ligula quisque montes",
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
-
-export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }));
-}
+import { ENV_CONFIG } from "@/lib/config/env.config";
 
 type Props = {
   children?: ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+export const metadata: Metadata = {
+  metadataBase: new URL(`${ENV_CONFIG.env.NEXT_PUBLIC_APP_URL}`),
+  title: "Ecommerce app",
+  description:
+    "Urna amet eleifend molestie elementum vel nulla habitant elit adipiscing consectetur gravida",
+  alternates: {
+    canonical: new URL(`${ENV_CONFIG.env.NEXT_PUBLIC_APP_URL}/es`),
+    languages: {
+      "en-US": "/en-US",
+      "es-ES": "/es-ES",
+    },
+  },
+  robots: {
+    index: false,
+    follow: false,
+    nocache: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
+};
+
+export function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({
+    locale,
+  }));
+}
 
 export default async function RootLayout({
   children,

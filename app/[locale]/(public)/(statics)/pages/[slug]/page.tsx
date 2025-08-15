@@ -2,9 +2,6 @@ import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import { findOnePage } from "@/modules/common/services/pages.service";
 import CmsContainer from "@/components/layouts/cms-container";
-import { IPages } from "@/interfaces/page.interface";
-import { searchStaticPagesService } from "@/modules/common/services/static-data.service";
-import i18nConfig from "@/i18nConfig";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -12,20 +9,6 @@ export const dynamicParams = true;
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
 };
-
-export async function generateStaticParams(params: any) {
-  const { data } = await searchStaticPagesService();
-
-  if (!data?.length) {
-    return [];
-  }
-
-  return data?.map((pages: IPages) => ({
-    slug: String(pages?.slug),
-    region: params?.region || process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
-    locale: params?.locale || i18nConfig.defaultLocale,
-  }));
-}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -41,9 +24,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
-      title: page.title,
-      description: page.description || "",
-      keywords: page.slug ? [page.slug] : undefined,
+      title: page?.title || 'page',
+      description: page?.description || "",
+      keywords: page?.slug ? [page?.slug] : undefined,
     };
   } catch (error) {
     console.warn(`Failed to generate metadata for ${slug}:`, error);
