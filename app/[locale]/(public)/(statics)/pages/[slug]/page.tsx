@@ -4,6 +4,7 @@ import { findOnePage } from "@/modules/common/services/pages.service";
 import CmsContainer from "@/components/layouts/cms-container";
 import { IPages } from "@/interfaces/page.interface";
 import { searchStaticPagesService } from "@/modules/common/services/static-data.service";
+import i18nConfig from "@/i18nConfig";
 
 export const revalidate = 60;
 export const dynamicParams = true;
@@ -22,6 +23,7 @@ export async function generateStaticParams(params: any) {
   return data?.map((pages: IPages) => ({
     slug: String(pages?.slug),
     region: params?.region || process.env.NEXT_PUBLIC_DEFAULT_REGION || "hab",
+    locale: params?.locale || i18nConfig.defaultLocale,
   }));
 }
 

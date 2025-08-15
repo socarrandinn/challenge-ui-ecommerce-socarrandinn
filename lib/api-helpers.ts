@@ -29,8 +29,6 @@ export const readJsonFile = (filePath: string) => {
 // Función genérica para manejar respuestas de API
 export const handleApiResponse = async (dataKey: string, filename: string, customErrorMessage: string) => {
   try {
-
-
     // Construir ruta del archivo
     const filePath = buildJsonFilePath(filename);
 
