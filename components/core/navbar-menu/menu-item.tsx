@@ -65,7 +65,7 @@ export const MenuItem = ({
 
   const isActive = useMemo(() => {
     if (!activePathName) return false;
-    return href === removeLanguageCodes(activePathName);
+    return removeLanguageCodes(activePathName).includes(href);
   }, [href, activePathName]);
 
   const linkContent = useMemo(

@@ -21,7 +21,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
   return (
     <Card
       className={cn(
-        "w-auto bg-card rounded-2xl overflow-hidden hover:shadow-card transition-shadow duration-300 p-0",
+        "w-auto bg-card rounded-2xl overflow-hidden hover:shadow-card transition-shadow duration-300 p-0 !gap-0",
         className
       )}
     >
@@ -69,19 +69,19 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
       <CardContent className="bg-[#f4f7fc] py-2 px-2 md:py-2 md:px-4 h-full flex flex-col justify-between ">
         <Link href={CATALOG_MENU.path(product?.id)} className="mb-1">
           {/* Price */}
-          <ProductPriceCard price={product?.price} />
+          <ProductPriceCard price={product?.price} size="md"/>
 
           {/* Product Name */}
           <LongText
             lineClamp={2}
             text={product?.name}
-            className="text-xs md:text-sm font-normal"
+            className="text-xs md:text-sm font-normal min-h-8"
           />
 
           {/* Rating */}
           <Rating
             value={product?.rating}
-            className={"ring-0 mt-3"}
+            className={"ring-0 mt-2"}
             variant="preview"
             size="sm"
           />

@@ -1,20 +1,10 @@
 import Container from "@/components/layouts/container";
-
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { Suspense } from "react";
-import { Button } from "@/components/ui/button";
-
 import HeaderWrapper from "./header-wrapper";
 import { ChildrenProps } from "@/interfaces/common.types";
 import { Logo } from "@/components/core/logo";
 import HeaderSearch from "./header-serach";
 import UserMenu from "@/components/core/user-menu/user-menu";
-import { Menu } from "lucide-react";
 import HeaderMobileNavbar from "./header-mobile-navbar";
 import { allCategory } from "@/modules/common/services/category.service";
 import LanguageChanger from "@/components/core/language-changer/language-changer";
@@ -35,7 +25,7 @@ export const Header = async ({ locale }: HeaderProps) => {
 
   const renderContent = () => (
     <HeaderWrapper>
-      <Container className="flex md:hidden w-full justify-end bg-muted p-0">
+      <Container className="flex md:hidden w-full justify-end bg-muted p-0 mb-1">
         <div>
           <LanguageChanger locale={locale} />
         </div>
@@ -44,23 +34,11 @@ export const Header = async ({ locale }: HeaderProps) => {
         <div className="flex h-12 items-center justify-between">
           <div className="flex items-center gap-2">
             {/* Mobile menu button */}
-            <Sheet>
-              <SheetTrigger asChild className="md:hidden">
-                <Button size="icon" variant="ghost">
-                  <Menu className="h-5 w-5 " />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="flex w-[100vw] flex-col p-0 bg-sidebar">
-                <SheetHeader className="flex  flex-row justify-between relative">
-                  <Logo className="text-4xl" />
-                </SheetHeader>
-                <HeaderMobileNavbar />
-              </SheetContent>
-            </Sheet>
+            <HeaderMobileNavbar />
             <Logo />
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             {/* region */}
             <Suspense fallback={<StateButtonSkeleton />}>
               <StateButton className="hidden lg:flex" region={regionCookie} />
@@ -75,7 +53,7 @@ export const Header = async ({ locale }: HeaderProps) => {
             </Suspense>
           </div>
 
-          <div className="flex items-center gap-1 md:gap-2">
+          <div className="flex items-center gap-2 md:gap-4">
             {/* region */}
             <Suspense fallback={<StateButtonSkeleton />}>
               <StateButton className="flex lg:hidden" region={regionCookie} />

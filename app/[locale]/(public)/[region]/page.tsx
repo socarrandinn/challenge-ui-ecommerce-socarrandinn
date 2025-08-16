@@ -2,9 +2,6 @@ import initTranslations from "@/app/i18n";
 import HomeContainer from "@/modules/landing/containers/home-container";
 import TranslationsProvider from "@/providers/translation-provider";
 
-// Add this line to force dynamic rendering
-export const dynamic = "force-dynamic";
-
 export const revalidate = 60;
 export const dynamicParams = true;
 
