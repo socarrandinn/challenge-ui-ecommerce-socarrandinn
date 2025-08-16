@@ -53,6 +53,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
             alt={product.name}
             width={200}
             height={200}
+            sizes="(max-width: 768px) 140px, 140px"
             className={cn(
               "object-contain max-w-full max-h-full object-center aspect-auto",
               imageClassName
@@ -69,7 +70,7 @@ const ProductCard = ({ product, imageClassName, className }: Props) => {
       <CardContent className="bg-[#f4f7fc] py-2 px-2 md:py-2 md:px-4 h-full flex flex-col justify-between ">
         <Link href={CATALOG_MENU.path(product?.id)} className="mb-1">
           {/* Price */}
-          <ProductPriceCard price={product?.price} size="md"/>
+          <ProductPriceCard price={product?.price} size="md" />
 
           {/* Product Name */}
           <LongText
