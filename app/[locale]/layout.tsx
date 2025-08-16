@@ -5,10 +5,16 @@ import { dir } from "i18next";
 import i18nConfig from "@/i18nConfig";
 import { notFound } from "next/navigation";
 import NextTopLoader from "nextjs-toploader";
-import { cn } from "@/lib/utils";
-import { fontVariables } from "@/lib/config/fonts";
 import MainProvider from "@/providers/main.provider";
 import { ENV_CONFIG } from "@/lib/config/env.config";
+
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "400", "500", "600", "700"],
+  display: "swap",
+});
 
 type Props = {
   children?: ReactNode;
@@ -59,8 +65,9 @@ export default async function RootLayout({
       lang={dynamicParams?.locale}
       dir={dir(dynamicParams?.locale)}
       suppressHydrationWarning
+      className={montserrat.className}
     >
-      <body className={cn(fontVariables, "antialiased")}>
+      <body>
         <NextTopLoader
           color="var(--primary)"
           initialPosition={0.08}
