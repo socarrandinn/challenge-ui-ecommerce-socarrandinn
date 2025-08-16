@@ -28,8 +28,8 @@ const HomeFindEveryThingInOnePlaceContainer = () => {
             alt="find every thing in one place"
             src="/images/banner/banner-five/mobile/banner-five.webp"
             blurDataURL="/images/banner/banner-five/mobile/banner-five-thumb.webp"
-            height={316}
-            width={525}
+            height={223}
+            width={384}
             className="object-contain aspect-auto block md:hidden"
             placeholder="blur"
             unoptimized
