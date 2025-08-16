@@ -46,10 +46,9 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           height={imagen?.desktop?.height}
           className="object-contain w-full h-full transition-all duration-700 md:block hidden"
           unoptimized
-          sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
           placeholder={"blur"}
           blurDataURL={imagen?.desktop?.thumb || "/images/no-images.webp"}
-          priority
+          loading="lazy"
         />
 
         {/* Image mobile */}
@@ -60,10 +59,9 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           height={imagen?.mobile?.height}
           className="object-contain w-full h-full transition-all duration-700 block md:hidden aspect-auto"
           unoptimized
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder={"blur"}
           blurDataURL={imagen?.mobile?.thumb || "/images/no-images.webp"}
-          priority
+          loading="lazy"
         />
 
         {/* Overlay con gradiente metálico */}
