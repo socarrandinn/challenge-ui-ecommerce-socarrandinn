@@ -12,6 +12,8 @@ import HomeWhatYouNeedContainer from "./home-what-you-need-container";
 import BannerCombo from "../components/banner-combo/banner-combo";
 import HomeFindEveryThingInOnePlaceContainer from "./home-find-everything-in-one-place-container";
 import HomeBannerMini from "./home-banner-mini-container";
+import { Suspense } from "react";
+import HomeHeroSkeleton from "../skeleton/home-hero.skeleton";
 
 type Props = TProps & {
   params: Promise<{ locale: string }>;
@@ -46,7 +48,9 @@ const HomeContainer = async ({}: Props) => {
 
   return (
     <section className="flex flex-col gap-5 md:gap-10 mt-4 md:mt-8 px-1.5 md:px-0">
-      <HomeHeroContainer hero={hero || []} />
+      <Suspense fallback={<HomeHeroSkeleton />}>
+        <HomeHeroContainer hero={hero || []} />
+      </Suspense>
 
       {/* categories sections */}
       <HomeCategoryContainer categories={categories?.slice(0, 8) || []} />

@@ -44,11 +44,11 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           alt={alt}
           width={imagen?.desktop?.width}
           height={imagen?.desktop?.height}
-          className="object-contain w-full h-full transition-all duration-700 md:block hidden"
+          className="object-contain w-full transition-all duration-700 md:block hidden"
           unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
           placeholder={"blur"}
-          blurDataURL={imagen?.desktop?.thumb || "/images/no-images.webp"}
+          blurDataURL={imagen?.desktop?.thumb}
           loading="lazy"
         />
 
@@ -62,7 +62,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder={"blur"}
-          blurDataURL={imagen?.mobile?.thumb || "/images/no-images.webp"}
+          blurDataURL={imagen?.mobile?.thumb}
           loading="lazy"
         />
 

@@ -33,6 +33,12 @@ export const metadata: Metadata = {
       "es-ES": "/es-ES",
     },
   },
+  openGraph: {
+    images: "/opengraph-image.png",
+  },
+  other: {
+    google: "noTranslate",
+  },
   robots: {
     index: true,
     follow: true,
@@ -66,6 +72,7 @@ export default async function RootLayout({
       dir={dir(dynamicParams?.locale)}
       suppressHydrationWarning
       className={montserrat.className}
+      translate="no"
     >
       <body>
         <NextTopLoader

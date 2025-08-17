@@ -38,7 +38,7 @@ const HomeHeroContainer = ({ hero }: Props) => {
         {/* Bottom right banner */}
         <div
           className={`
-            col-start-1 
+            col-start-1
             lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-2
           `}
         >
