@@ -8,45 +8,38 @@ type Props = {
 };
 
 const HomeHeroContainer = ({ hero }: Props) => {
+  if (!hero || hero.length < 3) {
+    return null;
+  }
 
-  console.log(hero,'sss')
   return (
     <Container>
       <section className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap-2 lg:gap-3">
         {/* Main banner - left side, full height */}
-        <div
-          className={`
-            col-start-1
-            lg:col-span-4 lg:row-span-2
-          `}
-        >
-          <picture>
-            <MetallicBanner imagen={hero[0]?.imagen} alt={hero[0]?.text} />
-          </picture>
+        <div className="col-span-1 lg:col-span-4 lg:row-span-2">
+          <MetallicBanner
+            imagen={hero[0]?.imagen}
+            alt={hero[0]?.text}
+            className="h-full"
+          />
         </div>
 
         {/* Top right banner */}
-        <div
-          className={`
-            col-start-1
-            lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-1
-          `}
-        >
-          <picture>
-            <MetallicBanner imagen={hero[1]?.imagen} alt={hero[1]?.text} />
-          </picture>
+        <div className="col-span-1 lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-1">
+          <MetallicBanner
+            imagen={hero[1]?.imagen}
+            alt={hero[1]?.text}
+            className="h-full"
+          />
         </div>
 
         {/* Bottom right banner */}
-        <div
-          className={`
-            col-start-1
-            lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-2
-          `}
-        >
-          <picture>
-            <MetallicBanner imagen={hero[2]?.imagen} alt={hero[2]?.text} />
-          </picture>
+        <div className="col-span-1 lg:col-span-2 lg:row-span-1 lg:col-start-5 lg:row-start-2">
+          <MetallicBanner
+            imagen={hero[2]?.imagen}
+            alt={hero[2]?.text}
+            className="h-full"
+          />
         </div>
       </section>
     </Container>

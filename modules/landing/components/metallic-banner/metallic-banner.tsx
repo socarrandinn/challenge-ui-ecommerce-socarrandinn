@@ -30,14 +30,14 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
   const bannerContent = (
     <div
       className={cn(
-        "relative mx-auto rounded-xl overflow-hidden group cursor-pointer transform transition-all duration-500",
-        "hover:shadow-card",
+        "relative  rounded-xl overflow-hidden group cursor-pointer transform transition-all duration-500",
+        "hover:shadow-card w-full h-full aspect-auto",
         className
       )}
       onClick={handleClick}
     >
       {/* Imagen de fondo responsive */}
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full aspect-auto">
         {/* Image desktop */}
         <Image
           src={imagen?.desktop?.src}
