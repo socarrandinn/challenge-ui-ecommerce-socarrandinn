@@ -48,7 +48,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1440px) 50vw, 33vw"
           placeholder={"blur"}
-          blurDataURL={imagen?.desktop?.thumb}
+          blurDataURL={imagen?.desktop?.thumb ?? "/images/no-image.webp"}
           loading="lazy"
         />
 
@@ -62,7 +62,7 @@ const MetallicBanner: React.FC<MetallicBannerProps> = ({
           unoptimized
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           placeholder={"blur"}
-          blurDataURL={imagen?.mobile?.thumb}
+          blurDataURL={imagen?.mobile?.thumb ?? "/images/no-image.webp"}
           loading="lazy"
         />
 

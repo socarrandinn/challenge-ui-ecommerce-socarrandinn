@@ -8,6 +8,8 @@ type Props = {
 };
 
 const HomeHeroContainer = ({ hero }: Props) => {
+
+  console.log(hero,'sss')
   return (
     <Container>
       <section className="grid grid-cols-1 lg:grid-cols-6 lg:grid-rows-2 gap-2 lg:gap-3">

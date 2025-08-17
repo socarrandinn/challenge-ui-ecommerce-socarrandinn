@@ -19,6 +19,7 @@ type Props = TProps & {
   params: Promise<{ locale: string }>;
   namespaces: string[];
 };
+
 const HomeContainer = async ({}: Props) => {
   const { data: hero } = await allBannerService(BANNER_COLLECTION.HERO);
 

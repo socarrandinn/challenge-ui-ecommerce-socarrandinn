@@ -5,11 +5,11 @@ import TranslationsProvider from "@/providers/translation-provider";
 export const revalidate = 60;
 export const dynamicParams = true;
 
-const i18nNamespaces = ["home", "common", "errors", "breadcrumbs"];
-
 type Props = {
   params: Promise<{ locale: string; region: string }>;
 };
+
+const i18nNamespaces = ["home", "common", "errors", "breadcrumbs"];
 
 export default async function Home({ params }: Props) {
   const { locale } = await params;
