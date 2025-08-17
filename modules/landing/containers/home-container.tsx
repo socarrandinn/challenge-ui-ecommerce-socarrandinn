@@ -49,9 +49,7 @@ const HomeContainer = async ({}: Props) => {
 
   return (
     <section className="flex flex-col gap-5 md:gap-10 mt-4 md:mt-8 px-1.5 md:px-0">
-      <Suspense fallback={<HomeHeroSkeleton />}>
-        <HomeHeroContainer hero={hero || []} />
-      </Suspense>
+      <HomeHeroContainer hero={hero || []} />
 
       {/* categories sections */}
       <HomeCategoryContainer categories={categories?.slice(0, 8) || []} />
