@@ -12,8 +12,6 @@ import HomeWhatYouNeedContainer from "./home-what-you-need-container";
 import BannerCombo from "../components/banner-combo/banner-combo";
 import HomeFindEveryThingInOnePlaceContainer from "./home-find-everything-in-one-place-container";
 import HomeBannerMini from "./home-banner-mini-container";
-import { Suspense } from "react";
-import HomeHeroSkeleton from "../skeleton/home-hero.skeleton";
 
 type Props = TProps & {
   params: Promise<{ locale: string }>;
